@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.DS_Store
+__MACOSX/
+.ipynb_checkpoints/
+.venv/
+venv/
+venv1/
+env/
+output/tmp/
+dashboard/tmp/
+data/product_definitions/.git/

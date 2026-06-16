@@ -1,0 +1,21 @@
+{
+  "raw_trade_file": "data/raw/trades.json",
+  "raw_trade_sha256": "3c19ed405809b42e17b1d740239a7a1defa85eb2456880bf47156e340e7e9c82",
+  "processed_trade_file": "data/processed/trades.json",
+  "processed_trade_sha256": "3742984216e54b1d8a6b885a8697a06e49bf80a1d93395f8859bec650821dd38",
+  "trade_count": 28,
+  "product_definitions_path": "data/product_definitions",
+  "product_definitions_action": "existing",
+  "product_definitions_source": "data/product_definitions",
+  "product_definitions_version": "8ddc6fc57e2a3f02",
+  "normalization": [
+    "parse_status -> declared_parse_status",
+    "cftc_status/emir_status/finding -> case_file_* source-fact fields"
+  ],
+  "generated_outputs": [
+    "output/compliance_results.json",
+    "output/findings.csv",
+    "output/summary.json",
+    "dashboard/dashboard.html"
+  ]
+}

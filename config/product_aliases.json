@@ -1,0 +1,82 @@
+[
+  {
+    "source": {"asset_class": "Rates", "instrument_type": "Swap", "use_case": "OIS"},
+    "target": {"asset_class": "Rates", "instrument_type": "Swap", "use_case": "Fixed_Float_OIS"},
+    "note": "Mapped teaching-data OIS label to the ANNA-DSB Fixed_Float_OIS template."
+  },
+  {
+    "source": {"asset_class": "Rates", "instrument_type": "Cap", "use_case": "Cap"},
+    "target": {"asset_class": "Rates", "instrument_type": "Option", "use_case": "CapFloor"},
+    "note": "Mapped cap to the Rates.Option.CapFloor template."
+  },
+  {
+    "source": {"asset_class": "Rates", "instrument_type": "Floor", "use_case": "Floor"},
+    "target": {"asset_class": "Rates", "instrument_type": "Option", "use_case": "CapFloor"},
+    "note": "Mapped floor to the Rates.Option.CapFloor template."
+  },
+  {
+    "source": {"asset_class": "Rates", "instrument_type": "Swaption", "use_case": "Payer"},
+    "target": {"asset_class": "Rates", "instrument_type": "Option", "use_case": "Swaption"},
+    "note": "Mapped payer swaption to the Rates.Option.Swaption template."
+  },
+  {
+    "source": {"asset_class": "Credit", "instrument_type": "CreditDefaultSwap", "use_case": "SingleName"},
+    "target": {"asset_class": "Credit", "instrument_type": "Swap", "use_case": "Corporate"},
+    "note": "Mapped single-name CDS to the closest corporate credit-swap template."
+  },
+  {
+    "source": {"asset_class": "Credit", "instrument_type": "CreditDefaultSwap", "use_case": "Index"},
+    "target": {"asset_class": "Credit", "instrument_type": "Swap", "use_case": "Index"},
+    "note": "Mapped index CDS to the Credit.Swap.Index template."
+  },
+  {
+    "source": {"asset_class": "Credit", "instrument_type": "TotalReturnSwap", "use_case": "SingleName"},
+    "target": {"asset_class": "Credit", "instrument_type": "Swap", "use_case": "Total_Return_Swap"},
+    "note": "Mapped credit TRS to the Credit.Swap.Total_Return_Swap template."
+  },
+  {
+    "source": {"asset_class": "FX", "instrument_type": "Swap", "use_case": "Cross_Currency"},
+    "target": {"asset_class": "Foreign_Exchange", "instrument_type": "Swap", "use_case": "FX_Swap"},
+    "note": "Mapped teaching-data FX cross-currency swap to Foreign_Exchange.Swap.FX_Swap."
+  },
+  {
+    "source": {"asset_class": "FX", "instrument_type": "Option", "use_case": "VanillaOption"},
+    "target": {"asset_class": "Foreign_Exchange", "instrument_type": "Option", "use_case": "Vanilla_Option"},
+    "note": "Mapped VanillaOption to the ANNA-DSB Vanilla_Option label."
+  },
+  {
+    "source": {"asset_class": "FX", "instrument_type": "Option", "use_case": "BarrierOption"},
+    "target": {"asset_class": "Foreign_Exchange", "instrument_type": "Option", "use_case": "Barrier_Option"},
+    "note": "Mapped BarrierOption to the ANNA-DSB Barrier_Option label."
+  },
+  {
+    "source": {"asset_class": "FX", "instrument_type": "Forward", "use_case": "Forward"},
+    "target": {"asset_class": "Foreign_Exchange", "instrument_type": "Forward", "use_case": "Forward"},
+    "note": "Mapped FX forward to Foreign_Exchange.Forward.Forward."
+  },
+  {
+    "source": {"asset_class": "Equity", "instrument_type": "Swap", "use_case": "EquitySwap_Parameters"},
+    "target": {"asset_class": "Equity", "instrument_type": "Swap", "use_case": "Total_Return_Swap_Single_Name"},
+    "note": "Mapped generic equity swap to a representative single-name total-return-swap template; the source data does not specify the return subtype."
+  },
+  {
+    "source": {"asset_class": "Equity", "instrument_type": "Option", "use_case": "EquityEuropeanOption"},
+    "target": {"asset_class": "Equity", "instrument_type": "Option", "use_case": "Single_Name"},
+    "note": "Mapped European equity option to Equity.Option.Single_Name; exercise style is an attribute, not the template path."
+  },
+  {
+    "source": {"asset_class": "Equity", "instrument_type": "Option", "use_case": "EquityAmericanOption"},
+    "target": {"asset_class": "Equity", "instrument_type": "Option", "use_case": "Single_Name"},
+    "note": "Mapped American equity option to Equity.Option.Single_Name; exercise style is an attribute, not the template path."
+  },
+  {
+    "source": {"asset_class": "Commodities", "instrument_type": "Swap", "use_case": "CommoditySwap"},
+    "target": {"asset_class": "Commodities", "instrument_type": "Swap", "use_case": "Swap"},
+    "note": "Mapped teaching-data commodity swap to Commodities.Swap.Swap."
+  },
+  {
+    "source": {"asset_class": "Commodities", "instrument_type": "Option", "use_case": "CommodityOption"},
+    "target": {"asset_class": "Commodities", "instrument_type": "Option", "use_case": "Option"},
+    "note": "Mapped teaching-data commodity option to Commodities.Option.Option."
+  }
+]

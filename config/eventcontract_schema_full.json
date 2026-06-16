@@ -1,0 +1,65 @@
+{
+  "TemplateVersion": "1.0",
+  "Header": {
+    "AssetClass": "EventContract",
+    "InstrumentType": "BinaryContract",
+    "UseCase": "PoliticalOutcome",
+    "Level": "Unique Product Identifier (UPI)",
+    "Identifier": {"UPI": "PENDING_ISSUANCE"},
+    "Status": "PROPOSED",
+    "LastUpdateDateTime": "2026-05-11T00:00:00Z"
+  },
+  "Attributes": {
+    "EventCategory": {
+      "Description": "Category of the reference event that determines settlement",
+      "AllowedValues": ["PoliticalOutcome", "MacroeconomicIndicator", "RegulatoryDecision", "WeatherOrClimate", "CorporateAction", "LitigationOutcome", "Other"],
+      "Required": true
+    },
+    "ReferenceEntity": {
+      "Description": "Body or index whose decision or outcome defines the event",
+      "Example": "German Federal Election Commission | US Bureau of Labor Statistics | ESMA",
+      "Required": true
+    },
+    "EventJurisdiction": {
+      "Description": "ISO 3166-1 alpha-2 country code of the primary jurisdiction",
+      "Example": "DE | US | EU",
+      "Required": true
+    },
+    "EventDate": {
+      "Description": "Expected event determination date in ISO 8601 format",
+      "Example": "2025-09-28",
+      "Required": true
+    },
+    "ResolutionSource": {
+      "Description": "Official authoritative source used to determine final settlement outcome",
+      "Example": "Official federal election results | BLS CPI release | ESMA register",
+      "Required": true
+    },
+    "PayoutType": {
+      "Description": "Payout structure at settlement",
+      "AllowedValues": ["Binary", "Scalar", "Capped", "Floored", "MultiOutcome"],
+      "Required": true
+    },
+    "SettlementCurrency": {
+      "Description": "Settlement currency: ISO 4217 fiat or stablecoin identifier",
+      "Note": "Stablecoin codes such as USDC are not ISO 4217 and require a supplemental identifier scheme",
+      "Required": true
+    },
+    "PlatformType": {
+      "Description": "Legal and operational classification of the trading venue",
+      "AllowedValues": ["CFTC_DCM", "CFTC_SEF", "OffshoreExchange", "DecentralisedProtocol", "BilateralOTC", "Other"],
+      "Required": true
+    },
+    "RegulatoryStatus": {
+      "Description": "Regulatory classification in the applicable jurisdiction",
+      "AllowedValues": ["Approved", "Conditional", "GamblingProhibited", "PublicPolicyProhibited", "NotApplicable", "Uncertain"],
+      "Required": true
+    }
+  },
+  "Derived": {
+    "ClassificationType": "EventContract",
+    "ShortName": "EventContract.Binary.PoliticalOutcome",
+    "UnderlierName": "{ReferenceEntity} {EventDate}",
+    "UnderlyingAssetType": "Event"
+  }
+}

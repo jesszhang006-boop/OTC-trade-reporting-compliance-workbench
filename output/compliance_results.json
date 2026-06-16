@@ -1,0 +1,5249 @@
+{
+  "metadata": {
+    "engine_name": "衍生品交易报告合规审查工作台规则引擎",
+    "regimes": [
+      "CFTC",
+      "EMIR"
+    ],
+    "trade_count": 28,
+    "product_definitions_path": "data/product_definitions"
+  },
+  "summary": {
+    "overall_status_counts": {
+      "COMPLIANT": 5,
+      "WARNING": 7,
+      "NONCOMPLIANT": 13,
+      "REGULATORY_AMBIGUOUS": 2,
+      "NOT_REPORTABLE": 1
+    },
+    "data_quality_status_counts": {
+      "PASS": 5,
+      "WARNING": 9,
+      "NONCOMPLIANT": 14
+    },
+    "reporting_scope_status_counts": {
+      "IN_SCOPE": 25,
+      "CONDITIONAL": 2,
+      "OUT_OF_SCOPE": 1
+    },
+    "severity_counts": {
+      "INFO": 39,
+      "WARNING": 20,
+      "NONCOMPLIANT": 25
+    },
+    "all_rule_counts": {
+      "UPI_PLACEHOLDER": 25,
+      "UPI_TEMPLATE_MAPPING": 19,
+      "LEI_CHECK_DIGIT": 6,
+      "EMIR_NULL_MARGIN": 3,
+      "INVALID_CURRENCY": 3,
+      "LEI_MISSING": 3,
+      "NO_PRODUCT_DEFINITION": 3,
+      "EMIR_EVENT_SCOPE": 3,
+      "REFERENCE_RATE_ALIAS": 2,
+      "EMIR_REQUIRED_FIELD": 2,
+      "UTI_NAMESPACE": 2,
+      "UTI_NAMESPACE_FORMAT": 2,
+      "CFTC_EVENT_CONDITIONAL": 2,
+      "LIBOR_WARNING": 1,
+      "ACTION_TYPE_ENUM": 1,
+      "TIMESTAMP_PARTIAL": 1,
+      "CFTC_REQUIRED_FIELD": 1,
+      "DATE_INVALID": 1,
+      "UTI_SUFFIX": 1,
+      "TIMESTAMP_INVALID": 1,
+      "UTI_MISSING": 1,
+      "CFTC_EVENT_NOT_APPLICABLE": 1
+    },
+    "top_rule_counts": {
+      "UPI_PLACEHOLDER": 25,
+      "UPI_TEMPLATE_MAPPING": 19,
+      "LEI_CHECK_DIGIT": 6,
+      "EMIR_NULL_MARGIN": 3,
+      "INVALID_CURRENCY": 3,
+      "LEI_MISSING": 3,
+      "NO_PRODUCT_DEFINITION": 3,
+      "REFERENCE_RATE_ALIAS": 2,
+      "EMIR_REQUIRED_FIELD": 2,
+      "UTI_NAMESPACE": 2,
+      "UTI_NAMESPACE_FORMAT": 2,
+      "LIBOR_WARNING": 1,
+      "ACTION_TYPE_ENUM": 1,
+      "TIMESTAMP_PARTIAL": 1,
+      "CFTC_REQUIRED_FIELD": 1,
+      "DATE_INVALID": 1,
+      "UTI_SUFFIX": 1,
+      "TIMESTAMP_INVALID": 1,
+      "UTI_MISSING": 1
+    },
+    "top_compliance_rule_counts": {
+      "UPI_PLACEHOLDER": 25,
+      "UPI_TEMPLATE_MAPPING": 19,
+      "LEI_CHECK_DIGIT": 6,
+      "EMIR_NULL_MARGIN": 3,
+      "INVALID_CURRENCY": 3,
+      "LEI_MISSING": 3,
+      "NO_PRODUCT_DEFINITION": 3,
+      "REFERENCE_RATE_ALIAS": 2,
+      "EMIR_REQUIRED_FIELD": 2,
+      "UTI_NAMESPACE": 2,
+      "UTI_NAMESPACE_FORMAT": 2,
+      "LIBOR_WARNING": 1,
+      "ACTION_TYPE_ENUM": 1,
+      "TIMESTAMP_PARTIAL": 1,
+      "CFTC_REQUIRED_FIELD": 1,
+      "DATE_INVALID": 1,
+      "UTI_SUFFIX": 1,
+      "TIMESTAMP_INVALID": 1,
+      "UTI_MISSING": 1
+    },
+    "top_substantive_rule_counts": {
+      "LEI_CHECK_DIGIT": 6,
+      "EMIR_NULL_MARGIN": 3,
+      "INVALID_CURRENCY": 3,
+      "LEI_MISSING": 3,
+      "NO_PRODUCT_DEFINITION": 3,
+      "EMIR_REQUIRED_FIELD": 2,
+      "UTI_NAMESPACE": 2,
+      "UTI_NAMESPACE_FORMAT": 2,
+      "LIBOR_WARNING": 1,
+      "ACTION_TYPE_ENUM": 1,
+      "TIMESTAMP_PARTIAL": 1,
+      "CFTC_REQUIRED_FIELD": 1,
+      "DATE_INVALID": 1,
+      "UTI_SUFFIX": 1,
+      "TIMESTAMP_INVALID": 1,
+      "UTI_MISSING": 1
+    },
+    "scope_rule_counts": {
+      "EMIR_EVENT_SCOPE": 3,
+      "CFTC_EVENT_CONDITIONAL": 2,
+      "CFTC_EVENT_NOT_APPLICABLE": 1
+    },
+    "asset_class_status_counts": {
+      "Commodities": {
+        "NONCOMPLIANT": 2
+      },
+      "Credit": {
+        "WARNING": 2,
+        "NONCOMPLIANT": 1,
+        "COMPLIANT": 1
+      },
+      "Equity": {
+        "NONCOMPLIANT": 3,
+        "WARNING": 1
+      },
+      "EventContract": {
+        "REGULATORY_AMBIGUOUS": 2,
+        "NOT_REPORTABLE": 1
+      },
+      "FX": {
+        "WARNING": 1,
+        "NONCOMPLIANT": 4
+      },
+      "Rates": {
+        "COMPLIANT": 4,
+        "WARNING": 3,
+        "NONCOMPLIANT": 3
+      }
+    },
+    "classification_counts": {
+      "CONVENTIONAL": 25,
+      "CONDITIONAL_EVENT_CONTRACT": 2,
+      "NOT_REPORTABLE_EVENT_CONTRACT": 1
+    },
+    "regulatory_conclusion_counts": {
+      "CONVENTIONAL": 25,
+      "CONDITIONAL_EVENT_CONTRACT": 2,
+      "NOT_REPORTABLE_EVENT_CONTRACT": 1
+    },
+    "parse_status_counts": {
+      "PASSED": 25,
+      "PARTIAL": 2,
+      "FAILED": 1
+    }
+  },
+  "event_contract_analysis": {
+    "schema_proposal": {
+      "TemplateVersion": "1.0",
+      "Header": {
+        "AssetClass": "EventContract",
+        "InstrumentType": "BinaryContract",
+        "UseCase": "PoliticalOutcome",
+        "Level": "Unique Product Identifier (UPI)",
+        "Identifier": {
+          "UPI": "PENDING_ISSUANCE"
+        },
+        "Status": "PROPOSED",
+        "LastUpdateDateTime": "2026-05-11T00:00:00Z"
+      },
+      "Attributes": {
+        "EventCategory": {
+          "Description": "Category of the reference event that determines settlement",
+          "AllowedValues": [
+            "PoliticalOutcome",
+            "MacroeconomicIndicator",
+            "RegulatoryDecision",
+            "WeatherOrClimate",
+            "CorporateAction",
+            "LitigationOutcome",
+            "Other"
+          ],
+          "Required": true
+        },
+        "ReferenceEntity": {
+          "Description": "Body or index whose decision or outcome defines the event",
+          "Example": "German Federal Election Commission | US Bureau of Labor Statistics | ESMA",
+          "Required": true
+        },
+        "EventJurisdiction": {
+          "Description": "ISO 3166-1 alpha-2 country code of the primary jurisdiction",
+          "Example": "DE | US | EU",
+          "Required": true
+        },
+        "EventDate": {
+          "Description": "Expected event determination date in ISO 8601 format",
+          "Example": "2025-09-28",
+          "Required": true
+        },
+        "ResolutionSource": {
+          "Description": "Official authoritative source used to determine final settlement outcome",
+          "Example": "Official federal election results | BLS CPI release | ESMA register",
+          "Required": true
+        },
+        "PayoutType": {
+          "Description": "Payout structure at settlement",
+          "AllowedValues": [
+            "Binary",
+            "Scalar",
+            "Capped",
+            "Floored",
+            "MultiOutcome"
+          ],
+          "Required": true
+        },
+        "SettlementCurrency": {
+          "Description": "Settlement currency: ISO 4217 fiat or stablecoin identifier",
+          "Note": "Stablecoin codes such as USDC are not ISO 4217 and require a supplemental identifier scheme.",
+          "Required": true
+        },
+        "PlatformType": {
+          "Description": "Legal and operational classification of the trading venue",
+          "AllowedValues": [
+            "CFTC_DCM",
+            "CFTC_SEF",
+            "OffshoreExchange",
+            "DecentralisedProtocol",
+            "BilateralOTC",
+            "Other"
+          ],
+          "Required": true
+        },
+        "RegulatoryStatus": {
+          "Description": "Regulatory classification of the contract in the applicable jurisdiction",
+          "AllowedValues": [
+            "Approved",
+            "Conditional",
+            "GamblingProhibited",
+            "PublicPolicyProhibited",
+            "NotApplicable",
+            "Uncertain"
+          ],
+          "Required": true
+        }
+      },
+      "Derived": {
+        "ClassificationType": "EventContract",
+        "ShortName": "EventContract.Binary.PoliticalOutcome",
+        "UnderlierName": "{ReferenceEntity} {EventDate}",
+        "UnderlyingAssetType": "Event"
+      }
+    },
+    "economic_function_tests": {
+      "T026": {
+        "quantifiable_exposure": {
+          "status": "YES",
+          "rationale": "A renewable-energy firm with German government subsidy exposure can identify revenue sensitivity to the election outcome."
+        },
+        "viable_hedge_substitute": {
+          "status": "PARTIAL",
+          "rationale": "Power forwards, carbon allowances, FX/rates hedges, or structured derivatives can hedge some cash-flow channels, but not the binary political trigger directly."
+        },
+        "price_discovery_beyond_public_data": {
+          "status": "YES",
+          "rationale": "Regulated prediction-market prices can provide a continuously updated probability signal beyond static polling averages."
+        },
+        "engine_conclusion": "CONDITIONAL_EVENT_CONTRACT"
+      },
+      "T027": {
+        "quantifiable_exposure": {
+          "status": "YES",
+          "rationale": "A fixed-income portfolio manager holding USD rates exposure can quantify CPI-driven mark-to-market losses."
+        },
+        "viable_hedge_substitute": {
+          "status": "YES_FUNCTIONAL_NOT_LEGAL",
+          "rationale": "The payoff is economically analogous to CPI caps or inflation swaptions, but the offshore venue, missing LEIs, missing UTI, and USDC settlement block ordinary CFTC/EMIR reporting visibility."
+        },
+        "price_discovery_beyond_public_data": {
+          "status": "YES",
+          "rationale": "Binary CPI prices can provide distributional probability information not directly observable from ordinary fixed-income instruments."
+        },
+        "engine_conclusion": "NOT_REPORTABLE_EVENT_CONTRACT"
+      },
+      "T028": {
+        "quantifiable_exposure": {
+          "status": "YES",
+          "rationale": "A fintech firm can quantify the compliance-cost timing effect of an AI Act deadline extension."
+        },
+        "viable_hedge_substitute": {
+          "status": "NO",
+          "rationale": "No standard OTC instrument references the ESMA AI Act deadline as the underlying event."
+        },
+        "price_discovery_beyond_public_data": {
+          "status": "PARTIAL",
+          "rationale": "The event may contain a useful regulatory probability signal, but thin volume and possible non-public information weaken informational reliability."
+        },
+        "engine_conclusion": "CONDITIONAL_EVENT_CONTRACT"
+      }
+    },
+    "supervisory_flags": {
+      "T026": {
+        "regulated_cftc_venue": true,
+        "offshore_or_decentralised": false,
+        "no_upi_taxonomy": true,
+        "non_iso_settlement_currency": false,
+        "missing_identifier_visibility": false,
+        "ec1_threshold_usd": 100000,
+        "ec1_threshold_status": "MET_OR_EXCEEDED",
+        "recommended_cftc_action": "PART45_DCM_EVENT_REPORTING_CANDIDATE"
+      },
+      "T027": {
+        "regulated_cftc_venue": false,
+        "offshore_or_decentralised": true,
+        "no_upi_taxonomy": true,
+        "non_iso_settlement_currency": true,
+        "missing_identifier_visibility": true,
+        "ec1_threshold_usd": 100000,
+        "ec1_threshold_status": "BELOW_THRESHOLD",
+        "recommended_cftc_action": "EC1_REVIEW_BELOW_PROPOSED_THRESHOLD"
+      },
+      "T028": {
+        "regulated_cftc_venue": true,
+        "offshore_or_decentralised": false,
+        "no_upi_taxonomy": true,
+        "non_iso_settlement_currency": false,
+        "missing_identifier_visibility": false,
+        "ec1_threshold_usd": 100000,
+        "ec1_threshold_status": "BELOW_THRESHOLD",
+        "recommended_cftc_action": "PART45_DCM_EVENT_REPORTING_CANDIDATE"
+      }
+    },
+    "regulatory_references": [
+      {
+        "name": "CFTC Prediction Markets ANPR",
+        "citation": "91 FR 12516, RIN 3038-AF65, March 16, 2026",
+        "relevance": "Confirms the CFTC is seeking comment on event-contract derivatives traded on prediction markets and can use comments to inform future rulemaking."
+      },
+      {
+        "name": "Diercks, Katz and Wright (2026)",
+        "citation": "Kalshi and the Rise of Macro Markets, NBER Working Paper 34702 / FEDS 2026-010",
+        "relevance": "Supports the price-discovery premise for regulated macro prediction markets."
+      },
+      {
+        "name": "Brandes (2026)",
+        "citation": "The Unhedgeable State: Why Europe's Risk Management Architecture Has a Political Risk Gap",
+        "relevance": "Supports functional classification based on operator neutrality, financial exposure, and incremental price discovery."
+      }
+    ],
+    "cftc_recommendations": [
+      {
+        "recommendation_id": "PART45_DCM_EVENT_REPORTING",
+        "title": "Extend SDR-style reporting to CFTC-licensed DCM event contracts above a materiality threshold.",
+        "engine_impact": "T026 and T028 would move from CFTC_EVENT_CONDITIONAL to a directly reportable event-contract scope if the rule supplied UPI, LEI, UTI, event, and venue fields."
+      },
+      {
+        "recommendation_id": "EC1_NON_ISO_SETTLEMENT_REVIEW",
+        "title": "Create a novel-instrument notification or review trigger for offshore or stablecoin-settled event contracts.",
+        "engine_impact": "T027 combines non-ISO USDC settlement, missing LEIs, missing UTI, no UPI taxonomy, and offshore/decentralised venue facts. Its notional is below the illustrative USD 100,000 filing threshold, so the engine treats it as a review flag rather than an automatic filing obligation."
+      }
+    ]
+  },
+  "trades": [
+    {
+      "trade_id": "T001",
+      "asset_class": "Rates",
+      "instrument_type": "Swap",
+      "use_case": "Fixed_Float",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T001",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Rates/Rates.Swap.Fixed_Float.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Rates",
+          "instrument_type": "Swap",
+          "use_case": "Fixed_Float"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DeliveryType",
+          "Attributes.NotionalCurrency",
+          "Attributes.NotionalSchedule",
+          "Attributes.ReferenceRate",
+          "Attributes.ReferenceRateTermUnit",
+          "Attributes.ReferenceRateTermValue",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.ClassificationType",
+          "Derived.ShortName",
+          "Derived.SingleorMultiCurrency",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "CHECKED",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Attributes.NotionalCurrency",
+              "trade_field": "notional_currency",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.NotionalSchedule",
+              "trade_field": "notional_amount",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.ReferenceRate",
+              "trade_field": "reference_rate",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 7,
+          "missing_mapped_required_attributes": [],
+          "missing_mapped_required_count": 0,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Attributes.ReferenceRateTermUnit",
+            "Attributes.ReferenceRateTermValue",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 4,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "USD is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "VALID",
+            "message": "USD-SOFR-COMPOUND is present in the rates reference-rate codesets"
+          }
+        },
+        "upi_status": "VALID",
+        "notes": []
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "PASS",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "COMPLIANT",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        }
+      ]
+    },
+    {
+      "trade_id": "T002",
+      "asset_class": "Rates",
+      "instrument_type": "Swap",
+      "use_case": "Fixed_Float",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T002",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Rates/Rates.Swap.Fixed_Float.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Rates",
+          "instrument_type": "Swap",
+          "use_case": "Fixed_Float"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DeliveryType",
+          "Attributes.NotionalCurrency",
+          "Attributes.NotionalSchedule",
+          "Attributes.ReferenceRate",
+          "Attributes.ReferenceRateTermUnit",
+          "Attributes.ReferenceRateTermValue",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.ClassificationType",
+          "Derived.ShortName",
+          "Derived.SingleorMultiCurrency",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "CHECKED",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Attributes.NotionalCurrency",
+              "trade_field": "notional_currency",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.NotionalSchedule",
+              "trade_field": "notional_amount",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.ReferenceRate",
+              "trade_field": "reference_rate",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 7,
+          "missing_mapped_required_attributes": [],
+          "missing_mapped_required_count": 0,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Attributes.ReferenceRateTermUnit",
+            "Attributes.ReferenceRateTermValue",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 4,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "EUR is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "VALID",
+            "message": "EUR-EURIBOR-Reuters is present in the rates reference-rate codesets"
+          }
+        },
+        "upi_status": "VALID",
+        "notes": []
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "PASS",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "COMPLIANT",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        }
+      ]
+    },
+    {
+      "trade_id": "T003",
+      "asset_class": "Rates",
+      "instrument_type": "Swap",
+      "use_case": "Basis",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T003",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Rates/Rates.Swap.Basis.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Rates",
+          "instrument_type": "Swap",
+          "use_case": "Basis"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DeliveryType",
+          "Attributes.NotionalCurrency",
+          "Attributes.NotionalSchedule",
+          "Attributes.OtherLegReferenceRate",
+          "Attributes.OtherLegReferenceRateTermUnit",
+          "Attributes.OtherLegReferenceRateTermValue",
+          "Attributes.ReferenceRate",
+          "Attributes.ReferenceRateTermUnit",
+          "Attributes.ReferenceRateTermValue",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.ClassificationType",
+          "Derived.ShortName",
+          "Derived.SingleorMultiCurrency",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "CHECKED",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Attributes.NotionalCurrency",
+              "trade_field": "notional_currency",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.NotionalSchedule",
+              "trade_field": "notional_amount",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.ReferenceRate",
+              "trade_field": "reference_rate",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 7,
+          "missing_mapped_required_attributes": [],
+          "missing_mapped_required_count": 0,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Attributes.OtherLegReferenceRate",
+            "Attributes.OtherLegReferenceRateTermUnit",
+            "Attributes.OtherLegReferenceRateTermValue",
+            "Attributes.ReferenceRateTermUnit",
+            "Attributes.ReferenceRateTermValue",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 7,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "GBP is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "WARNING",
+            "message": "GBP-SONIA-OIS-COMPOUND is not exact, but normalized alias GBP-SONIA-OIS Compound exists in the codeset."
+          }
+        },
+        "upi_status": "WARNING",
+        "notes": []
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "WARNING",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "WARNING",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "Template matched with caveats.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "REFERENCE_RATE_ALIAS",
+          "rule_name": "Rates reference-rate codeset validation",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "GBP-SONIA-OIS-COMPOUND is not exact, but normalized alias GBP-SONIA-OIS Compound exists in the codeset.",
+          "finding_type": "COMPLIANCE",
+          "field": "reference_rate"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "Template matched with caveats.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "REFERENCE_RATE_ALIAS",
+          "rule_name": "Rates reference-rate codeset validation",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "GBP-SONIA-OIS-COMPOUND is not exact, but normalized alias GBP-SONIA-OIS Compound exists in the codeset.",
+          "finding_type": "COMPLIANCE",
+          "field": "reference_rate"
+        }
+      ]
+    },
+    {
+      "trade_id": "T004",
+      "asset_class": "Rates",
+      "instrument_type": "Swap",
+      "use_case": "OIS",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T004",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Rates/Rates.Swap.Fixed_Float_OIS.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Rates",
+          "instrument_type": "Swap",
+          "use_case": "Fixed_Float_OIS"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DeliveryType",
+          "Attributes.NotionalCurrency",
+          "Attributes.NotionalSchedule",
+          "Attributes.ReferenceRate",
+          "Attributes.ReferenceRateTermUnit",
+          "Attributes.ReferenceRateTermValue",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.ClassificationType",
+          "Derived.ShortName",
+          "Derived.SingleorMultiCurrency",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "CHECKED",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Attributes.NotionalCurrency",
+              "trade_field": "notional_currency",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.NotionalSchedule",
+              "trade_field": "notional_amount",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.ReferenceRate",
+              "trade_field": "reference_rate",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 7,
+          "missing_mapped_required_attributes": [],
+          "missing_mapped_required_count": 0,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Attributes.ReferenceRateTermUnit",
+            "Attributes.ReferenceRateTermValue",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 4,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "JPY is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "VALID",
+            "message": "JPY-TONA-OIS-COMPOUND is present in the rates reference-rate codesets"
+          }
+        },
+        "upi_status": "WARNING",
+        "notes": [
+          "Mapped teaching-data OIS label to the ANNA-DSB Fixed_Float_OIS template."
+        ]
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "NONCOMPLIANT",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "NONCOMPLIANT",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "Mapped teaching-data OIS label to the ANNA-DSB Fixed_Float_OIS template.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "LEI_CHECK_DIGIT",
+          "rule_name": "LEI ISO 7064 check digit",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "other counterparty lei fails ISO 7064 MOD 97-10 check-digit validation.",
+          "finding_type": "COMPLIANCE",
+          "field": "other_counterparty_lei"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "Mapped teaching-data OIS label to the ANNA-DSB Fixed_Float_OIS template.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "LEI_CHECK_DIGIT",
+          "rule_name": "LEI ISO 7064 check digit",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "other counterparty lei fails ISO 7064 MOD 97-10 check-digit validation.",
+          "finding_type": "COMPLIANCE",
+          "field": "other_counterparty_lei"
+        }
+      ]
+    },
+    {
+      "trade_id": "T005",
+      "asset_class": "Rates",
+      "instrument_type": "Swap",
+      "use_case": "Fixed_Float",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T005",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Rates/Rates.Swap.Fixed_Float.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Rates",
+          "instrument_type": "Swap",
+          "use_case": "Fixed_Float"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DeliveryType",
+          "Attributes.NotionalCurrency",
+          "Attributes.NotionalSchedule",
+          "Attributes.ReferenceRate",
+          "Attributes.ReferenceRateTermUnit",
+          "Attributes.ReferenceRateTermValue",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.ClassificationType",
+          "Derived.ShortName",
+          "Derived.SingleorMultiCurrency",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "CHECKED",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Attributes.NotionalCurrency",
+              "trade_field": "notional_currency",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.NotionalSchedule",
+              "trade_field": "notional_amount",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.ReferenceRate",
+              "trade_field": "reference_rate",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 7,
+          "missing_mapped_required_attributes": [],
+          "missing_mapped_required_count": 0,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Attributes.ReferenceRateTermUnit",
+            "Attributes.ReferenceRateTermValue",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 4,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "GBP is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "WARNING",
+            "message": "GBP-LIBOR-BBA remains in the codeset but is a legacy LIBOR rate; warn rather than hard-fail."
+          }
+        },
+        "upi_status": "WARNING",
+        "notes": []
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "WARNING",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "WARNING",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "Template matched with caveats.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "LIBOR_WARNING",
+          "rule_name": "Rates reference-rate codeset validation",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "GBP-LIBOR-BBA remains in the codeset but is a legacy LIBOR rate; warn rather than hard-fail.",
+          "finding_type": "COMPLIANCE",
+          "field": "reference_rate"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "Template matched with caveats.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "LIBOR_WARNING",
+          "rule_name": "Rates reference-rate codeset validation",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "GBP-LIBOR-BBA remains in the codeset but is a legacy LIBOR rate; warn rather than hard-fail.",
+          "finding_type": "COMPLIANCE",
+          "field": "reference_rate"
+        }
+      ]
+    },
+    {
+      "trade_id": "T006",
+      "asset_class": "Rates",
+      "instrument_type": "Cap",
+      "use_case": "Cap",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T006",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Rates/Rates.Option.CapFloor.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Rates",
+          "instrument_type": "Option",
+          "use_case": "CapFloor"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DeliveryType",
+          "Attributes.NotionalCurrency",
+          "Attributes.OptionType",
+          "Attributes.UnderlyingInstrumentIndex",
+          "Attributes.UnderlyingInstrumentIndexTermUnit",
+          "Attributes.UnderlyingInstrumentIndexTermValue",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.CFIOptionStyleandType",
+          "Derived.ClassificationType",
+          "Derived.OptionExerciseStyle",
+          "Derived.ShortName",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Derived.ValuationMethodorTrigger",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "CHECKED",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Attributes.NotionalCurrency",
+              "trade_field": "notional_currency",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.OptionType",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 6,
+          "missing_mapped_required_attributes": [],
+          "missing_mapped_required_count": 0,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Attributes.UnderlyingInstrumentIndex",
+            "Attributes.UnderlyingInstrumentIndexTermUnit",
+            "Attributes.UnderlyingInstrumentIndexTermValue",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 5,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "USD is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "VALID",
+            "message": "USD-SOFR-COMPOUND is present in the rates reference-rate codesets"
+          }
+        },
+        "upi_status": "WARNING",
+        "notes": [
+          "Mapped cap to the Rates.Option.CapFloor template."
+        ]
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "PASS",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "COMPLIANT",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "Mapped cap to the Rates.Option.CapFloor template.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "Mapped cap to the Rates.Option.CapFloor template.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        }
+      ]
+    },
+    {
+      "trade_id": "T007",
+      "asset_class": "Rates",
+      "instrument_type": "Swaption",
+      "use_case": "Payer",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T007",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Rates/Rates.Option.Swaption.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Rates",
+          "instrument_type": "Option",
+          "use_case": "Swaption"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DeliveryType",
+          "Attributes.NotionalCurrency",
+          "Attributes.OptionExerciseStyle",
+          "Attributes.OptionType",
+          "Attributes.UnderlyingInstrumentUPI",
+          "Attributes.ValuationMethodorTrigger",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.CFIOptionStyleandType",
+          "Derived.ClassificationType",
+          "Derived.ShortName",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "CHECKED",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Attributes.NotionalCurrency",
+              "trade_field": "notional_currency",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.OptionExerciseStyle",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.OptionType",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 7,
+          "missing_mapped_required_attributes": [],
+          "missing_mapped_required_count": 0,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Attributes.UnderlyingInstrumentUPI",
+            "Attributes.ValuationMethodorTrigger",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 4,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "EUR is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "VALID",
+            "message": "EUR-EURIBOR-Reuters is present in the rates reference-rate codesets"
+          }
+        },
+        "upi_status": "WARNING",
+        "notes": [
+          "Mapped payer swaption to the Rates.Option.Swaption template."
+        ]
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "PASS",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "COMPLIANT",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "Mapped payer swaption to the Rates.Option.Swaption template.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "Mapped payer swaption to the Rates.Option.Swaption template.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        }
+      ]
+    },
+    {
+      "trade_id": "T008",
+      "asset_class": "Rates",
+      "instrument_type": "Swap",
+      "use_case": "Fixed_Float",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T008",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Rates/Rates.Swap.Fixed_Float.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Rates",
+          "instrument_type": "Swap",
+          "use_case": "Fixed_Float"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DeliveryType",
+          "Attributes.NotionalCurrency",
+          "Attributes.NotionalSchedule",
+          "Attributes.ReferenceRate",
+          "Attributes.ReferenceRateTermUnit",
+          "Attributes.ReferenceRateTermValue",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.ClassificationType",
+          "Derived.ShortName",
+          "Derived.SingleorMultiCurrency",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "CHECKED",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Attributes.NotionalCurrency",
+              "trade_field": "notional_currency",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.NotionalSchedule",
+              "trade_field": "notional_amount",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.ReferenceRate",
+              "trade_field": "reference_rate",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 7,
+          "missing_mapped_required_attributes": [],
+          "missing_mapped_required_count": 0,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Attributes.ReferenceRateTermUnit",
+            "Attributes.ReferenceRateTermValue",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 4,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "XAU is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "VALID",
+            "message": "USD-SOFR-COMPOUND is present in the rates reference-rate codesets"
+          }
+        },
+        "upi_status": "VALID",
+        "notes": []
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "NONCOMPLIANT",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "NONCOMPLIANT",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "LEI_CHECK_DIGIT",
+          "rule_name": "LEI ISO 7064 check digit",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "other counterparty lei fails ISO 7064 MOD 97-10 check-digit validation.",
+          "finding_type": "COMPLIANCE",
+          "field": "other_counterparty_lei"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "LEI_CHECK_DIGIT",
+          "rule_name": "LEI ISO 7064 check digit",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "other counterparty lei fails ISO 7064 MOD 97-10 check-digit validation.",
+          "finding_type": "COMPLIANCE",
+          "field": "other_counterparty_lei"
+        }
+      ]
+    },
+    {
+      "trade_id": "T009",
+      "asset_class": "Rates",
+      "instrument_type": "Swap",
+      "use_case": "Fixed_Float",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T009",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Rates/Rates.Swap.Fixed_Float.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Rates",
+          "instrument_type": "Swap",
+          "use_case": "Fixed_Float"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DeliveryType",
+          "Attributes.NotionalCurrency",
+          "Attributes.NotionalSchedule",
+          "Attributes.ReferenceRate",
+          "Attributes.ReferenceRateTermUnit",
+          "Attributes.ReferenceRateTermValue",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.ClassificationType",
+          "Derived.ShortName",
+          "Derived.SingleorMultiCurrency",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "CHECKED",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Attributes.NotionalCurrency",
+              "trade_field": "notional_currency",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.NotionalSchedule",
+              "trade_field": "notional_amount",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.ReferenceRate",
+              "trade_field": "reference_rate",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 7,
+          "missing_mapped_required_attributes": [],
+          "missing_mapped_required_count": 0,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Attributes.ReferenceRateTermUnit",
+            "Attributes.ReferenceRateTermValue",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 4,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "AUD is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "VALID",
+            "message": "AUD-AONIA-OIS-COMPOUND is present in the rates reference-rate codesets"
+          }
+        },
+        "upi_status": "VALID",
+        "notes": []
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "NONCOMPLIANT",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "NONCOMPLIANT",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "ACTION_TYPE_ENUM",
+          "rule_name": "Action type enumeration",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "action_type AMND is not in the supported lifecycle-event set.",
+          "finding_type": "COMPLIANCE",
+          "field": "action_type"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "ACTION_TYPE_ENUM",
+          "rule_name": "Action type enumeration",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "action_type AMND is not in the supported lifecycle-event set.",
+          "finding_type": "COMPLIANCE",
+          "field": "action_type"
+        }
+      ]
+    },
+    {
+      "trade_id": "T010",
+      "asset_class": "Rates",
+      "instrument_type": "Floor",
+      "use_case": "Floor",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T010",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Rates/Rates.Option.CapFloor.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Rates",
+          "instrument_type": "Option",
+          "use_case": "CapFloor"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DeliveryType",
+          "Attributes.NotionalCurrency",
+          "Attributes.OptionType",
+          "Attributes.UnderlyingInstrumentIndex",
+          "Attributes.UnderlyingInstrumentIndexTermUnit",
+          "Attributes.UnderlyingInstrumentIndexTermValue",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.CFIOptionStyleandType",
+          "Derived.ClassificationType",
+          "Derived.OptionExerciseStyle",
+          "Derived.ShortName",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Derived.ValuationMethodorTrigger",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "CHECKED",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Attributes.NotionalCurrency",
+              "trade_field": "notional_currency",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.OptionType",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 6,
+          "missing_mapped_required_attributes": [],
+          "missing_mapped_required_count": 0,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Attributes.UnderlyingInstrumentIndex",
+            "Attributes.UnderlyingInstrumentIndexTermUnit",
+            "Attributes.UnderlyingInstrumentIndexTermValue",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 5,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "SGD is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "WARNING",
+            "message": "SGD-SORA-OIS-COMPOUND is not exact, but normalized alias SGD-SORA-OIS Compound exists in the codeset."
+          }
+        },
+        "upi_status": "WARNING",
+        "notes": [
+          "Mapped floor to the Rates.Option.CapFloor template."
+        ]
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "WARNING",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "WARNING",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "Mapped floor to the Rates.Option.CapFloor template.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "REFERENCE_RATE_ALIAS",
+          "rule_name": "Rates reference-rate codeset validation",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "SGD-SORA-OIS-COMPOUND is not exact, but normalized alias SGD-SORA-OIS Compound exists in the codeset.",
+          "finding_type": "COMPLIANCE",
+          "field": "reference_rate"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "Mapped floor to the Rates.Option.CapFloor template.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "REFERENCE_RATE_ALIAS",
+          "rule_name": "Rates reference-rate codeset validation",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "SGD-SORA-OIS-COMPOUND is not exact, but normalized alias SGD-SORA-OIS Compound exists in the codeset.",
+          "finding_type": "COMPLIANCE",
+          "field": "reference_rate"
+        }
+      ]
+    },
+    {
+      "trade_id": "T011",
+      "asset_class": "Credit",
+      "instrument_type": "CreditDefaultSwap",
+      "use_case": "SingleName",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T011",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Credit/Credit.Swap.Corporate.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Credit",
+          "instrument_type": "Swap",
+          "use_case": "Corporate"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DebtSeniority",
+          "Attributes.DeliveryType",
+          "Attributes.Underlying",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.ClassificationType",
+          "Derived.ReturnorPayoutTrigger",
+          "Derived.ShortName",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Derived.UnderlyingIssuerType",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "CHECKED",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 4,
+          "missing_mapped_required_attributes": [],
+          "missing_mapped_required_count": 0,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DebtSeniority",
+            "Attributes.DeliveryType",
+            "Attributes.Underlying",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 4,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "USD is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "NOT_APPLICABLE",
+            "message": null
+          }
+        },
+        "upi_status": "WARNING",
+        "notes": [
+          "Mapped single-name CDS to the closest corporate credit-swap template."
+        ]
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "WARNING",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "WARNING",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "Mapped single-name CDS to the closest corporate credit-swap template.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "Mapped single-name CDS to the closest corporate credit-swap template.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        }
+      ]
+    },
+    {
+      "trade_id": "T012",
+      "asset_class": "Credit",
+      "instrument_type": "CreditDefaultSwap",
+      "use_case": "Index",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T012",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Credit/Credit.Swap.Index.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Credit",
+          "instrument_type": "Swap",
+          "use_case": "Index"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DeliveryType",
+          "Attributes.Underlying",
+          "Attributes.UnderlyingIssuerType",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.ClassificationType",
+          "Derived.ReturnorPayoutTrigger",
+          "Derived.ShortName",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "CHECKED",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 4,
+          "missing_mapped_required_attributes": [],
+          "missing_mapped_required_count": 0,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Attributes.Underlying",
+            "Attributes.UnderlyingIssuerType",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 4,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "EUR is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "NOT_APPLICABLE",
+            "message": null
+          }
+        },
+        "upi_status": "WARNING",
+        "notes": [
+          "Mapped index CDS to the Credit.Swap.Index template."
+        ]
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "NONCOMPLIANT",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "NONCOMPLIANT",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "Mapped index CDS to the Credit.Swap.Index template.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "LEI_CHECK_DIGIT",
+          "rule_name": "LEI ISO 7064 check digit",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "other counterparty lei fails ISO 7064 MOD 97-10 check-digit validation.",
+          "finding_type": "COMPLIANCE",
+          "field": "other_counterparty_lei"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "Mapped index CDS to the Credit.Swap.Index template.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "LEI_CHECK_DIGIT",
+          "rule_name": "LEI ISO 7064 check digit",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "other counterparty lei fails ISO 7064 MOD 97-10 check-digit validation.",
+          "finding_type": "COMPLIANCE",
+          "field": "other_counterparty_lei"
+        }
+      ]
+    },
+    {
+      "trade_id": "T013",
+      "asset_class": "Credit",
+      "instrument_type": "CreditDefaultSwap",
+      "use_case": "SingleName",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T013",
+        "parse_status": "PARTIAL",
+        "engine_parse_status": "PARTIAL",
+        "declared_parse_status": "PARTIAL",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [
+          "PARTIAL_TIMESTAMP"
+        ],
+        "timestamp_message": "timestamp is date-only; expected ISO 8601 UTC with T and Z"
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Credit/Credit.Swap.Corporate.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Credit",
+          "instrument_type": "Swap",
+          "use_case": "Corporate"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DebtSeniority",
+          "Attributes.DeliveryType",
+          "Attributes.Underlying",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.ClassificationType",
+          "Derived.ReturnorPayoutTrigger",
+          "Derived.ShortName",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Derived.UnderlyingIssuerType",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "CHECKED",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 4,
+          "missing_mapped_required_attributes": [],
+          "missing_mapped_required_count": 0,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DebtSeniority",
+            "Attributes.DeliveryType",
+            "Attributes.Underlying",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 4,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "USD is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "NOT_APPLICABLE",
+            "message": null
+          }
+        },
+        "upi_status": "WARNING",
+        "notes": [
+          "Mapped single-name CDS to the closest corporate credit-swap template."
+        ]
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "WARNING",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "WARNING",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "Mapped single-name CDS to the closest corporate credit-swap template.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "TIMESTAMP_PARTIAL",
+          "rule_name": "Timestamp UTC format",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "timestamp is date-only; expected ISO 8601 UTC with T and Z",
+          "finding_type": "COMPLIANCE",
+          "field": "timestamp"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "Mapped single-name CDS to the closest corporate credit-swap template.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "TIMESTAMP_PARTIAL",
+          "rule_name": "Timestamp UTC format",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "timestamp is date-only; expected ISO 8601 UTC with T and Z",
+          "finding_type": "COMPLIANCE",
+          "field": "timestamp"
+        }
+      ]
+    },
+    {
+      "trade_id": "T014",
+      "asset_class": "Credit",
+      "instrument_type": "TotalReturnSwap",
+      "use_case": "SingleName",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T014",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Credit/Credit.Swap.Total_Return_Swap.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Credit",
+          "instrument_type": "Swap",
+          "use_case": "Total_Return_Swap"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DeliveryType",
+          "Attributes.Underlying",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.ClassificationType",
+          "Derived.ReturnorPayoutTrigger",
+          "Derived.ShortName",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Derived.UnderlyingIssuerType",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "CHECKED",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 4,
+          "missing_mapped_required_attributes": [],
+          "missing_mapped_required_count": 0,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Attributes.Underlying",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 3,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "GBP is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "NOT_APPLICABLE",
+            "message": null
+          }
+        },
+        "upi_status": "WARNING",
+        "notes": [
+          "Mapped credit TRS to the Credit.Swap.Total_Return_Swap template."
+        ]
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "PASS",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "COMPLIANT",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "Mapped credit TRS to the Credit.Swap.Total_Return_Swap template.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "Mapped credit TRS to the Credit.Swap.Total_Return_Swap template.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        }
+      ]
+    },
+    {
+      "trade_id": "T015",
+      "asset_class": "FX",
+      "instrument_type": "Swap",
+      "use_case": "Cross_Currency",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T015",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Foreign_Exchange/Foreign_Exchange.Swap.FX_Swap.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Foreign_Exchange",
+          "instrument_type": "Swap",
+          "use_case": "FX_Swap"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DeliveryType",
+          "Attributes.NotionalCurrency",
+          "Attributes.OtherNotionalCurrency",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.ClassificationType",
+          "Derived.ShortName",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "PARTIAL",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Attributes.NotionalCurrency",
+              "trade_field": "notional_currency",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.OtherNotionalCurrency",
+              "trade_field": "other_notional_currency",
+              "status": "MISSING"
+            },
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 6,
+          "missing_mapped_required_attributes": [
+            "Attributes.OtherNotionalCurrency"
+          ],
+          "missing_mapped_required_count": 1,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 2,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "USD is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "VALID",
+            "message": "USD-SOFR-COMPOUND is present in the rates reference-rate codesets"
+          }
+        },
+        "upi_status": "WARNING",
+        "notes": [
+          "Mapped teaching-data FX cross-currency swap to Foreign_Exchange.Swap.FX_Swap.",
+          "Matched DSB template, but some mapped required attributes are absent from the teaching-data record; treated as an attribute-coverage gap."
+        ]
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "WARNING",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "WARNING",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "Mapped teaching-data FX cross-currency swap to Foreign_Exchange.Swap.FX_Swap.; Matched DSB template, but some mapped required attributes are absent from the teaching-data record; treated as an attribute-coverage gap.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "Mapped teaching-data FX cross-currency swap to Foreign_Exchange.Swap.FX_Swap.; Matched DSB template, but some mapped required attributes are absent from the teaching-data record; treated as an attribute-coverage gap.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        }
+      ]
+    },
+    {
+      "trade_id": "T016",
+      "asset_class": "FX",
+      "instrument_type": "Option",
+      "use_case": "VanillaOption",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T016",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Foreign_Exchange/Foreign_Exchange.Option.Vanilla_Option.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Foreign_Exchange",
+          "instrument_type": "Option",
+          "use_case": "Vanilla_Option"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DeliveryType",
+          "Attributes.NotionalCurrency",
+          "Attributes.OptionExerciseStyle",
+          "Attributes.OptionType",
+          "Attributes.OtherNotionalCurrency",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.CFIOptionStyleandType",
+          "Derived.ClassificationType",
+          "Derived.ShortName",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Derived.ValuationMethodorTrigger",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "PARTIAL",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Attributes.NotionalCurrency",
+              "trade_field": "notional_currency",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.OptionExerciseStyle",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.OptionType",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.OtherNotionalCurrency",
+              "trade_field": "other_notional_currency",
+              "status": "MISSING"
+            },
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 8,
+          "missing_mapped_required_attributes": [
+            "Attributes.OtherNotionalCurrency"
+          ],
+          "missing_mapped_required_count": 1,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 2,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "JPY is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "NOT_APPLICABLE",
+            "message": null
+          }
+        },
+        "upi_status": "WARNING",
+        "notes": [
+          "Mapped VanillaOption to the ANNA-DSB Vanilla_Option label.",
+          "Matched DSB template, but some mapped required attributes are absent from the teaching-data record; treated as an attribute-coverage gap."
+        ]
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "NONCOMPLIANT",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "NONCOMPLIANT",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "Mapped VanillaOption to the ANNA-DSB Vanilla_Option label.; Matched DSB template, but some mapped required attributes are absent from the teaching-data record; treated as an attribute-coverage gap.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "LEI_CHECK_DIGIT",
+          "rule_name": "LEI ISO 7064 check digit",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "other counterparty lei fails ISO 7064 MOD 97-10 check-digit validation.",
+          "finding_type": "COMPLIANCE",
+          "field": "other_counterparty_lei"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "Mapped VanillaOption to the ANNA-DSB Vanilla_Option label.; Matched DSB template, but some mapped required attributes are absent from the teaching-data record; treated as an attribute-coverage gap.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "LEI_CHECK_DIGIT",
+          "rule_name": "LEI ISO 7064 check digit",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "other counterparty lei fails ISO 7064 MOD 97-10 check-digit validation.",
+          "finding_type": "COMPLIANCE",
+          "field": "other_counterparty_lei"
+        }
+      ]
+    },
+    {
+      "trade_id": "T017",
+      "asset_class": "FX",
+      "instrument_type": "Forward",
+      "use_case": "Forward",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T017",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Foreign_Exchange/Foreign_Exchange.Forward.Forward.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Foreign_Exchange",
+          "instrument_type": "Forward",
+          "use_case": "Forward"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DeliveryType",
+          "Attributes.NotionalCurrency",
+          "Attributes.OtherNotionalCurrency",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.ClassificationType",
+          "Derived.ReturnorPayoutTrigger",
+          "Derived.ShortName",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "PARTIAL",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Attributes.NotionalCurrency",
+              "trade_field": "notional_currency",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.OtherNotionalCurrency",
+              "trade_field": "other_notional_currency",
+              "status": "MISSING"
+            },
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 6,
+          "missing_mapped_required_attributes": [
+            "Attributes.OtherNotionalCurrency"
+          ],
+          "missing_mapped_required_count": 1,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 2,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "EUR is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "NOT_APPLICABLE",
+            "message": null
+          }
+        },
+        "upi_status": "WARNING",
+        "notes": [
+          "Mapped FX forward to Foreign_Exchange.Forward.Forward.",
+          "Matched DSB template, but some mapped required attributes are absent from the teaching-data record; treated as an attribute-coverage gap."
+        ]
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "NONCOMPLIANT",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "NONCOMPLIANT",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "Mapped FX forward to Foreign_Exchange.Forward.Forward.; Matched DSB template, but some mapped required attributes are absent from the teaching-data record; treated as an attribute-coverage gap.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "EMIR_REQUIRED_FIELD",
+          "rule_name": "EMIR required field",
+          "regime": "EMIR",
+          "severity": "NONCOMPLIANT",
+          "message": "collateral_portfolio_code is required under EMIR reporting checks.",
+          "finding_type": "COMPLIANCE",
+          "field": "collateral_portfolio_code"
+        },
+        {
+          "rule_id": "EMIR_NULL_MARGIN",
+          "rule_name": "EMIR margin value",
+          "regime": "EMIR",
+          "severity": "NONCOMPLIANT",
+          "message": "initial_margin_posted is null. Under EMIR, zero must be reported as 0; null is a compliance failure.",
+          "finding_type": "COMPLIANCE",
+          "field": "initial_margin_posted"
+        },
+        {
+          "rule_id": "EMIR_NULL_MARGIN",
+          "rule_name": "EMIR margin value",
+          "regime": "EMIR",
+          "severity": "NONCOMPLIANT",
+          "message": "variation_margin_posted is null. Under EMIR, zero must be reported as 0; null is a compliance failure.",
+          "finding_type": "COMPLIANCE",
+          "field": "variation_margin_posted"
+        },
+        {
+          "rule_id": "EMIR_NULL_MARGIN",
+          "rule_name": "EMIR margin value",
+          "regime": "EMIR",
+          "severity": "NONCOMPLIANT",
+          "message": "collateral_margin_posted is null. Under EMIR, zero must be reported as 0; null is a compliance failure.",
+          "finding_type": "COMPLIANCE",
+          "field": "collateral_margin_posted"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "Mapped FX forward to Foreign_Exchange.Forward.Forward.; Matched DSB template, but some mapped required attributes are absent from the teaching-data record; treated as an attribute-coverage gap.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "EMIR_REQUIRED_FIELD",
+          "rule_name": "EMIR required field",
+          "regime": "EMIR",
+          "severity": "NONCOMPLIANT",
+          "message": "collateral_portfolio_code is required under EMIR reporting checks.",
+          "finding_type": "COMPLIANCE",
+          "field": "collateral_portfolio_code"
+        },
+        {
+          "rule_id": "EMIR_NULL_MARGIN",
+          "rule_name": "EMIR margin value",
+          "regime": "EMIR",
+          "severity": "NONCOMPLIANT",
+          "message": "initial_margin_posted is null. Under EMIR, zero must be reported as 0; null is a compliance failure.",
+          "finding_type": "COMPLIANCE",
+          "field": "initial_margin_posted"
+        },
+        {
+          "rule_id": "EMIR_NULL_MARGIN",
+          "rule_name": "EMIR margin value",
+          "regime": "EMIR",
+          "severity": "NONCOMPLIANT",
+          "message": "variation_margin_posted is null. Under EMIR, zero must be reported as 0; null is a compliance failure.",
+          "finding_type": "COMPLIANCE",
+          "field": "variation_margin_posted"
+        },
+        {
+          "rule_id": "EMIR_NULL_MARGIN",
+          "rule_name": "EMIR margin value",
+          "regime": "EMIR",
+          "severity": "NONCOMPLIANT",
+          "message": "collateral_margin_posted is null. Under EMIR, zero must be reported as 0; null is a compliance failure.",
+          "finding_type": "COMPLIANCE",
+          "field": "collateral_margin_posted"
+        }
+      ]
+    },
+    {
+      "trade_id": "T018",
+      "asset_class": "FX",
+      "instrument_type": "Swap",
+      "use_case": "Cross_Currency",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T018",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Foreign_Exchange/Foreign_Exchange.Swap.FX_Swap.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Foreign_Exchange",
+          "instrument_type": "Swap",
+          "use_case": "FX_Swap"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DeliveryType",
+          "Attributes.NotionalCurrency",
+          "Attributes.OtherNotionalCurrency",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.ClassificationType",
+          "Derived.ShortName",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "PARTIAL",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Attributes.NotionalCurrency",
+              "trade_field": "notional_currency",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.OtherNotionalCurrency",
+              "trade_field": "other_notional_currency",
+              "status": "MISSING"
+            },
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 6,
+          "missing_mapped_required_attributes": [
+            "Attributes.OtherNotionalCurrency"
+          ],
+          "missing_mapped_required_count": 1,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 2,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "INVALID",
+            "message": "INVALID_CCY is not an ISO 4217 currency code in the DSB codeset"
+          },
+          "reference_rate": {
+            "status": "NOT_APPLICABLE",
+            "message": null
+          }
+        },
+        "upi_status": "INVALID",
+        "notes": [
+          "Mapped teaching-data FX cross-currency swap to Foreign_Exchange.Swap.FX_Swap."
+        ]
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "NONCOMPLIANT",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "NONCOMPLIANT",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "INVALID_CURRENCY",
+          "rule_name": "ISO 4217 currency validation",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "INVALID_CCY is not an ISO 4217 currency code in the DSB codeset",
+          "finding_type": "COMPLIANCE",
+          "field": "notional_currency"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "INVALID_CURRENCY",
+          "rule_name": "ISO 4217 currency validation",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "INVALID_CCY is not an ISO 4217 currency code in the DSB codeset",
+          "finding_type": "COMPLIANCE",
+          "field": "notional_currency"
+        }
+      ]
+    },
+    {
+      "trade_id": "T019",
+      "asset_class": "FX",
+      "instrument_type": "Option",
+      "use_case": "BarrierOption",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T019",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Foreign_Exchange/Foreign_Exchange.Option.Barrier_Option.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Foreign_Exchange",
+          "instrument_type": "Option",
+          "use_case": "Barrier_Option"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DeliveryType",
+          "Attributes.NotionalCurrency",
+          "Attributes.OptionExerciseStyle",
+          "Attributes.OptionType",
+          "Attributes.OtherNotionalCurrency",
+          "Attributes.SettlementCurrency",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.CFIOptionStyleandType",
+          "Derived.ClassificationType",
+          "Derived.ShortName",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Derived.ValuationMethodorTrigger",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "PARTIAL",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Attributes.NotionalCurrency",
+              "trade_field": "notional_currency",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.OptionExerciseStyle",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.OptionType",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.OtherNotionalCurrency",
+              "trade_field": "other_notional_currency",
+              "status": "MISSING"
+            },
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 8,
+          "missing_mapped_required_attributes": [
+            "Attributes.OtherNotionalCurrency"
+          ],
+          "missing_mapped_required_count": 1,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Attributes.SettlementCurrency",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 3,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "INVALID",
+            "message": "CNH is not an ISO 4217 currency code in the DSB codeset"
+          },
+          "reference_rate": {
+            "status": "NOT_APPLICABLE",
+            "message": null
+          }
+        },
+        "upi_status": "INVALID",
+        "notes": [
+          "Mapped BarrierOption to the ANNA-DSB Barrier_Option label."
+        ]
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "NONCOMPLIANT",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "NONCOMPLIANT",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "INVALID_CURRENCY",
+          "rule_name": "ISO 4217 currency validation",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "CNH is not an ISO 4217 currency code in the DSB codeset",
+          "finding_type": "COMPLIANCE",
+          "field": "notional_currency"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "INVALID_CURRENCY",
+          "rule_name": "ISO 4217 currency validation",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "CNH is not an ISO 4217 currency code in the DSB codeset",
+          "finding_type": "COMPLIANCE",
+          "field": "notional_currency"
+        }
+      ]
+    },
+    {
+      "trade_id": "T020",
+      "asset_class": "Equity",
+      "instrument_type": "Swap",
+      "use_case": "EquitySwap_Parameters",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T020",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Equity/Equity.Swap.Total_Return_Swap_Single_Name.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Equity",
+          "instrument_type": "Swap",
+          "use_case": "Total_Return_Swap_Single_Name"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DeliveryType",
+          "Attributes.UnderlyingInstrumentISIN",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.ClassificationType",
+          "Derived.ReturnorPayoutTrigger",
+          "Derived.ShortName",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "CHECKED",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 4,
+          "missing_mapped_required_attributes": [],
+          "missing_mapped_required_count": 0,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Attributes.UnderlyingInstrumentISIN",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 3,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "USD is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "NOT_APPLICABLE",
+            "message": null
+          }
+        },
+        "upi_status": "WARNING",
+        "notes": [
+          "Mapped generic equity swap to a representative single-name total-return-swap template; the source data does not specify the return subtype."
+        ]
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "NONCOMPLIANT",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "NONCOMPLIANT",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "Mapped generic equity swap to a representative single-name total-return-swap template; the source data does not specify the return subtype.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "LEI_CHECK_DIGIT",
+          "rule_name": "LEI ISO 7064 check digit",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "other counterparty lei fails ISO 7064 MOD 97-10 check-digit validation.",
+          "finding_type": "COMPLIANCE",
+          "field": "other_counterparty_lei"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "Mapped generic equity swap to a representative single-name total-return-swap template; the source data does not specify the return subtype.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "LEI_CHECK_DIGIT",
+          "rule_name": "LEI ISO 7064 check digit",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "other counterparty lei fails ISO 7064 MOD 97-10 check-digit validation.",
+          "finding_type": "COMPLIANCE",
+          "field": "other_counterparty_lei"
+        }
+      ]
+    },
+    {
+      "trade_id": "T021",
+      "asset_class": "Equity",
+      "instrument_type": "Option",
+      "use_case": "EquityEuropeanOption",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T021",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Equity/Equity.Option.Single_Name.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Equity",
+          "instrument_type": "Option",
+          "use_case": "Single_Name"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DeliveryType",
+          "Attributes.OptionExerciseStyle",
+          "Attributes.OptionType",
+          "Attributes.UnderlyingInstrumentISIN",
+          "Attributes.ValuationMethodorTrigger",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.CFIOptionStyleandType",
+          "Derived.ClassificationType",
+          "Derived.ShortName",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "CHECKED",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Attributes.OptionExerciseStyle",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.OptionType",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 6,
+          "missing_mapped_required_attributes": [],
+          "missing_mapped_required_count": 0,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Attributes.UnderlyingInstrumentISIN",
+            "Attributes.ValuationMethodorTrigger",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 4,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "EUR is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "NOT_APPLICABLE",
+            "message": null
+          }
+        },
+        "upi_status": "WARNING",
+        "notes": [
+          "Mapped European equity option to Equity.Option.Single_Name; exercise style is an attribute, not the template path."
+        ]
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "NONCOMPLIANT",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "NONCOMPLIANT",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "Mapped European equity option to Equity.Option.Single_Name; exercise style is an attribute, not the template path.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "LEI_MISSING",
+          "rule_name": "LEI presence",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "reporting counterparty lei is missing or uses a placeholder.",
+          "finding_type": "COMPLIANCE",
+          "field": "reporting_counterparty_lei"
+        },
+        {
+          "rule_id": "UTI_NAMESPACE",
+          "rule_name": "UTI namespace",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "First 20 characters of UTI do not equal reporting_counterparty_lei.",
+          "finding_type": "COMPLIANCE",
+          "field": "uti"
+        },
+        {
+          "rule_id": "UTI_NAMESPACE_FORMAT",
+          "rule_name": "UTI namespace format",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "UTI namespace is not a 20-character uppercase alphanumeric LEI namespace.",
+          "finding_type": "COMPLIANCE",
+          "field": "uti"
+        },
+        {
+          "rule_id": "CFTC_REQUIRED_FIELD",
+          "rule_name": "CFTC required field",
+          "regime": "CFTC",
+          "severity": "NONCOMPLIANT",
+          "message": "reporting_counterparty_lei is required under CFTC reporting checks.",
+          "finding_type": "COMPLIANCE",
+          "field": "reporting_counterparty_lei"
+        },
+        {
+          "rule_id": "EMIR_REQUIRED_FIELD",
+          "rule_name": "EMIR required field",
+          "regime": "EMIR",
+          "severity": "NONCOMPLIANT",
+          "message": "reporting_counterparty_lei is required under EMIR reporting checks.",
+          "finding_type": "COMPLIANCE",
+          "field": "reporting_counterparty_lei"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "Mapped European equity option to Equity.Option.Single_Name; exercise style is an attribute, not the template path.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "LEI_MISSING",
+          "rule_name": "LEI presence",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "reporting counterparty lei is missing or uses a placeholder.",
+          "finding_type": "COMPLIANCE",
+          "field": "reporting_counterparty_lei"
+        },
+        {
+          "rule_id": "UTI_NAMESPACE",
+          "rule_name": "UTI namespace",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "First 20 characters of UTI do not equal reporting_counterparty_lei.",
+          "finding_type": "COMPLIANCE",
+          "field": "uti"
+        },
+        {
+          "rule_id": "UTI_NAMESPACE_FORMAT",
+          "rule_name": "UTI namespace format",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "UTI namespace is not a 20-character uppercase alphanumeric LEI namespace.",
+          "finding_type": "COMPLIANCE",
+          "field": "uti"
+        },
+        {
+          "rule_id": "CFTC_REQUIRED_FIELD",
+          "rule_name": "CFTC required field",
+          "regime": "CFTC",
+          "severity": "NONCOMPLIANT",
+          "message": "reporting_counterparty_lei is required under CFTC reporting checks.",
+          "finding_type": "COMPLIANCE",
+          "field": "reporting_counterparty_lei"
+        },
+        {
+          "rule_id": "EMIR_REQUIRED_FIELD",
+          "rule_name": "EMIR required field",
+          "regime": "EMIR",
+          "severity": "NONCOMPLIANT",
+          "message": "reporting_counterparty_lei is required under EMIR reporting checks.",
+          "finding_type": "COMPLIANCE",
+          "field": "reporting_counterparty_lei"
+        }
+      ]
+    },
+    {
+      "trade_id": "T022",
+      "asset_class": "Equity",
+      "instrument_type": "Swap",
+      "use_case": "EquitySwap_Parameters",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T022",
+        "parse_status": "PARTIAL",
+        "engine_parse_status": "PARTIAL",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [
+          "INVALID_MATURITY_DATE"
+        ],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Equity/Equity.Swap.Total_Return_Swap_Single_Name.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Equity",
+          "instrument_type": "Swap",
+          "use_case": "Total_Return_Swap_Single_Name"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DeliveryType",
+          "Attributes.UnderlyingInstrumentISIN",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.ClassificationType",
+          "Derived.ReturnorPayoutTrigger",
+          "Derived.ShortName",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "CHECKED",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 4,
+          "missing_mapped_required_attributes": [],
+          "missing_mapped_required_count": 0,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Attributes.UnderlyingInstrumentISIN",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 3,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "HKD is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "NOT_APPLICABLE",
+            "message": null
+          }
+        },
+        "upi_status": "WARNING",
+        "notes": [
+          "Mapped generic equity swap to a representative single-name total-return-swap template; the source data does not specify the return subtype."
+        ]
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "WARNING",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "WARNING",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "Mapped generic equity swap to a representative single-name total-return-swap template; the source data does not specify the return subtype.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "DATE_INVALID",
+          "rule_name": "Calendar date validity",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "maturity_date is missing or not a real YYYY-MM-DD calendar date.",
+          "finding_type": "COMPLIANCE",
+          "field": "maturity_date"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "Mapped generic equity swap to a representative single-name total-return-swap template; the source data does not specify the return subtype.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "DATE_INVALID",
+          "rule_name": "Calendar date validity",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "maturity_date is missing or not a real YYYY-MM-DD calendar date.",
+          "finding_type": "COMPLIANCE",
+          "field": "maturity_date"
+        }
+      ]
+    },
+    {
+      "trade_id": "T023",
+      "asset_class": "Equity",
+      "instrument_type": "Option",
+      "use_case": "EquityAmericanOption",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T023",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Equity/Equity.Option.Single_Name.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Equity",
+          "instrument_type": "Option",
+          "use_case": "Single_Name"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.DeliveryType",
+          "Attributes.OptionExerciseStyle",
+          "Attributes.OptionType",
+          "Attributes.UnderlyingInstrumentISIN",
+          "Attributes.ValuationMethodorTrigger",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.CFIOptionStyleandType",
+          "Derived.ClassificationType",
+          "Derived.ShortName",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "CHECKED",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Attributes.OptionExerciseStyle",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.OptionType",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 6,
+          "missing_mapped_required_attributes": [],
+          "missing_mapped_required_count": 0,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Attributes.UnderlyingInstrumentISIN",
+            "Attributes.ValuationMethodorTrigger",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 4,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "USD is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "NOT_APPLICABLE",
+            "message": null
+          }
+        },
+        "upi_status": "WARNING",
+        "notes": [
+          "Mapped American equity option to Equity.Option.Single_Name; exercise style is an attribute, not the template path."
+        ]
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "NONCOMPLIANT",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "NONCOMPLIANT",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "Mapped American equity option to Equity.Option.Single_Name; exercise style is an attribute, not the template path.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "UTI_NAMESPACE",
+          "rule_name": "UTI namespace",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "First 20 characters of UTI do not equal reporting_counterparty_lei.",
+          "finding_type": "COMPLIANCE",
+          "field": "uti"
+        },
+        {
+          "rule_id": "UTI_NAMESPACE_FORMAT",
+          "rule_name": "UTI namespace format",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "UTI namespace is not a 20-character uppercase alphanumeric LEI namespace.",
+          "finding_type": "COMPLIANCE",
+          "field": "uti"
+        },
+        {
+          "rule_id": "UTI_SUFFIX",
+          "rule_name": "UTI suffix character set",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "UTI suffix must contain only uppercase letters, digits, and hyphens.",
+          "finding_type": "COMPLIANCE",
+          "field": "uti"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "Mapped American equity option to Equity.Option.Single_Name; exercise style is an attribute, not the template path.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "UTI_NAMESPACE",
+          "rule_name": "UTI namespace",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "First 20 characters of UTI do not equal reporting_counterparty_lei.",
+          "finding_type": "COMPLIANCE",
+          "field": "uti"
+        },
+        {
+          "rule_id": "UTI_NAMESPACE_FORMAT",
+          "rule_name": "UTI namespace format",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "UTI namespace is not a 20-character uppercase alphanumeric LEI namespace.",
+          "finding_type": "COMPLIANCE",
+          "field": "uti"
+        },
+        {
+          "rule_id": "UTI_SUFFIX",
+          "rule_name": "UTI suffix character set",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "UTI suffix must contain only uppercase letters, digits, and hyphens.",
+          "finding_type": "COMPLIANCE",
+          "field": "uti"
+        }
+      ]
+    },
+    {
+      "trade_id": "T024",
+      "asset_class": "Commodities",
+      "instrument_type": "Swap",
+      "use_case": "CommoditySwap",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T024",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Commodities/Commodities.Swap.Swap.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Commodities",
+          "instrument_type": "Swap",
+          "use_case": "Swap"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.BaseProduct",
+          "Attributes.DeliveryType",
+          "Attributes.ReferenceRate",
+          "Attributes.ReturnorPayoutTrigger",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.ClassificationType",
+          "Derived.ShortName",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "PARTIAL",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Attributes.BaseProduct",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.ReferenceRate",
+              "trade_field": "reference_rate",
+              "status": "MISSING"
+            },
+            {
+              "dsb_attribute": "Attributes.ReturnorPayoutTrigger",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 7,
+          "missing_mapped_required_attributes": [
+            "Attributes.ReferenceRate"
+          ],
+          "missing_mapped_required_count": 1,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 2,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "USD is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "NOT_APPLICABLE",
+            "message": null
+          }
+        },
+        "upi_status": "WARNING",
+        "notes": [
+          "Mapped teaching-data commodity swap to Commodities.Swap.Swap.",
+          "Matched DSB template, but some mapped required attributes are absent from the teaching-data record; treated as an attribute-coverage gap."
+        ]
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "NONCOMPLIANT",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "NONCOMPLIANT",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "Mapped teaching-data commodity swap to Commodities.Swap.Swap.; Matched DSB template, but some mapped required attributes are absent from the teaching-data record; treated as an attribute-coverage gap.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "LEI_CHECK_DIGIT",
+          "rule_name": "LEI ISO 7064 check digit",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "other counterparty lei fails ISO 7064 MOD 97-10 check-digit validation.",
+          "finding_type": "COMPLIANCE",
+          "field": "other_counterparty_lei"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "Mapped teaching-data commodity swap to Commodities.Swap.Swap.; Matched DSB template, but some mapped required attributes are absent from the teaching-data record; treated as an attribute-coverage gap.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "LEI_CHECK_DIGIT",
+          "rule_name": "LEI ISO 7064 check digit",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "other counterparty lei fails ISO 7064 MOD 97-10 check-digit validation.",
+          "finding_type": "COMPLIANCE",
+          "field": "other_counterparty_lei"
+        }
+      ]
+    },
+    {
+      "trade_id": "T025",
+      "asset_class": "Commodities",
+      "instrument_type": "Option",
+      "use_case": "CommodityOption",
+      "source_facts": null,
+      "parse": {
+        "trade_id": "T025",
+        "parse_status": "FAILED",
+        "engine_parse_status": "FAILED",
+        "declared_parse_status": "FAILED",
+        "classification": "CONVENTIONAL",
+        "data_quality_flags": [
+          "INVALID_TIMESTAMP"
+        ],
+        "timestamp_message": "timestamp is not parseable as ISO 8601 UTC"
+      },
+      "upi": {
+        "template_found": true,
+        "matched_template_path": "PROD/OTC-Products/UPI/Commodities/Commodities.Option.Option.UPI.V1.json",
+        "normalized_product": {
+          "asset_class": "Commodities",
+          "instrument_type": "Option",
+          "use_case": "Option"
+        },
+        "required_attributes": [
+          "Attributes",
+          "Attributes.BaseProduct",
+          "Attributes.DeliveryType",
+          "Attributes.OptionExerciseStyle",
+          "Attributes.OptionType",
+          "Attributes.ReferenceRate",
+          "Attributes.ValuationMethodorTrigger",
+          "Derived",
+          "Derived.CFIDeliveryType",
+          "Derived.CFIOptionStyleandType",
+          "Derived.ClassificationType",
+          "Derived.ShortName",
+          "Derived.UnderlierName",
+          "Derived.UnderlyingAssetType",
+          "Header",
+          "Header.AssetClass",
+          "Header.InstrumentType",
+          "Header.Level",
+          "Header.UseCase",
+          "Identifier",
+          "Identifier.LastUpdateDateTime",
+          "Identifier.Status",
+          "Identifier.UPI",
+          "TemplateVersion"
+        ],
+        "required_attribute_validation": {
+          "status": "PARTIAL",
+          "checked_required_attributes": [
+            {
+              "dsb_attribute": "Attributes.BaseProduct",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.OptionExerciseStyle",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.OptionType",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Attributes.ReferenceRate",
+              "trade_field": "reference_rate",
+              "status": "MISSING"
+            },
+            {
+              "dsb_attribute": "Header.AssetClass",
+              "trade_field": "asset_class",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.InstrumentType",
+              "trade_field": "instrument_type",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Header.UseCase",
+              "trade_field": "use_case",
+              "status": "PRESENT"
+            },
+            {
+              "dsb_attribute": "Identifier.UPI",
+              "trade_field": "upi",
+              "status": "PRESENT"
+            }
+          ],
+          "checked_required_count": 8,
+          "missing_mapped_required_attributes": [
+            "Attributes.ReferenceRate"
+          ],
+          "missing_mapped_required_count": 1,
+          "unmapped_required_attributes_sample": [
+            "Attributes.DeliveryType",
+            "Attributes.ValuationMethodorTrigger",
+            "Header.Level"
+          ],
+          "unmapped_required_count": 3,
+          "note": "这是基于当前样本字段对 ANNA-DSB required field name 的覆盖度检查。生产级系统应构造完整 DSB request payload，并校验全部 schema property 与 enum。"
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "USD is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "NOT_APPLICABLE",
+            "message": null
+          }
+        },
+        "upi_status": "WARNING",
+        "notes": [
+          "Mapped teaching-data commodity option to Commodities.Option.Option.",
+          "Matched DSB template, but some mapped required attributes are absent from the teaching-data record; treated as an attribute-coverage gap."
+        ]
+      },
+      "economic_function_test": null,
+      "supervisory_flags": null,
+      "classification_conclusion": "CONVENTIONAL",
+      "regulatory_conclusion": "CONVENTIONAL",
+      "data_quality_status": "NONCOMPLIANT",
+      "reporting_scope_status": "IN_SCOPE",
+      "overall_status": "NONCOMPLIANT",
+      "compliance_findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "Mapped teaching-data commodity option to Commodities.Option.Option.; Matched DSB template, but some mapped required attributes are absent from the teaching-data record; treated as an attribute-coverage gap.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "TIMESTAMP_INVALID",
+          "rule_name": "Timestamp UTC format",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "timestamp is not parseable as ISO 8601 UTC",
+          "finding_type": "COMPLIANCE",
+          "field": "timestamp"
+        }
+      ],
+      "scope_assessments": [],
+      "findings": [
+        {
+          "rule_id": "UPI_TEMPLATE_MAPPING",
+          "rule_name": "ANNA-DSB UPI template lookup",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "Mapped teaching-data commodity option to Commodities.Option.Option.; Matched DSB template, but some mapped required attributes are absent from the teaching-data record; treated as an attribute-coverage gap.",
+          "finding_type": "COMPLIANCE",
+          "field": "use_case"
+        },
+        {
+          "rule_id": "UPI_PLACEHOLDER",
+          "rule_name": "UPI placeholder",
+          "regime": "GLOBAL",
+          "severity": "INFO",
+          "message": "UPI field is populated but still uses a teaching-data placeholder; production reporting would need the issued UPI.",
+          "finding_type": "COMPLIANCE",
+          "field": "upi"
+        },
+        {
+          "rule_id": "TIMESTAMP_INVALID",
+          "rule_name": "Timestamp UTC format",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "timestamp is not parseable as ISO 8601 UTC",
+          "finding_type": "COMPLIANCE",
+          "field": "timestamp"
+        }
+      ]
+    },
+    {
+      "trade_id": "T026",
+      "asset_class": "EventContract",
+      "instrument_type": "BinaryOption",
+      "use_case": "PoliticalOutcome",
+      "source_facts": {
+        "platform": "Kalshi",
+        "platform_type": "CFTC_DCM",
+        "event_description": "AfD > 30% in Bundestagswahl German federal election",
+        "hedger_type": "renewable_energy_firm",
+        "notional_currency": "USD",
+        "booked_in_sg": false,
+        "traded_in_sg": false,
+        "case_file_cftc_status": "CONDITIONAL",
+        "case_file_emir_status": "NOT_APPLICABLE",
+        "case_file_regulatory_note": "Gambling classification under GlüStV 2021"
+      },
+      "parse": {
+        "trade_id": "T026",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "NOVEL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": false,
+        "matched_template_path": null,
+        "normalized_product": null,
+        "required_attributes": [],
+        "required_attribute_validation": {
+          "status": "NO_PRODUCT_DEFINITION",
+          "checked_required_attributes": [],
+          "checked_required_count": 0,
+          "missing_mapped_required_attributes": [],
+          "missing_mapped_required_count": 0,
+          "unmapped_required_attributes_sample": [],
+          "unmapped_required_count": 0,
+          "note": "No ANNA-DSB OTC UPI template exists for EventContract, so template-level attribute validation cannot be performed."
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "USD is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "NOT_APPLICABLE",
+            "message": null
+          }
+        },
+        "upi_status": "NO_PRODUCT_DEFINITION",
+        "notes": [
+          "EventContract has no ANNA-DSB UPI product definition in the OTC taxonomy."
+        ]
+      },
+      "economic_function_test": {
+        "quantifiable_exposure": {
+          "status": "YES",
+          "rationale": "A renewable-energy firm with German government subsidy exposure can identify revenue sensitivity to the election outcome."
+        },
+        "viable_hedge_substitute": {
+          "status": "PARTIAL",
+          "rationale": "Power forwards, carbon allowances, FX/rates hedges, or structured derivatives can hedge some cash-flow channels, but not the binary political trigger directly."
+        },
+        "price_discovery_beyond_public_data": {
+          "status": "YES",
+          "rationale": "Regulated prediction-market prices can provide a continuously updated probability signal beyond static polling averages."
+        },
+        "engine_conclusion": "CONDITIONAL_EVENT_CONTRACT"
+      },
+      "supervisory_flags": {
+        "regulated_cftc_venue": true,
+        "offshore_or_decentralised": false,
+        "no_upi_taxonomy": true,
+        "non_iso_settlement_currency": false,
+        "missing_identifier_visibility": false,
+        "ec1_threshold_usd": 100000,
+        "ec1_threshold_status": "MET_OR_EXCEEDED",
+        "recommended_cftc_action": "PART45_DCM_EVENT_REPORTING_CANDIDATE"
+      },
+      "classification_conclusion": "CONDITIONAL_EVENT_CONTRACT",
+      "regulatory_conclusion": "CONDITIONAL_EVENT_CONTRACT",
+      "data_quality_status": "WARNING",
+      "reporting_scope_status": "CONDITIONAL",
+      "overall_status": "REGULATORY_AMBIGUOUS",
+      "compliance_findings": [
+        {
+          "rule_id": "NO_PRODUCT_DEFINITION",
+          "rule_name": "ANNA-DSB UPI taxonomy coverage",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "No ANNA-DSB OTC product definition exists for EventContract; this is a taxonomy gap, not a parser crash.",
+          "finding_type": "COMPLIANCE",
+          "field": "asset_class",
+          "status": "REGULATORY_AMBIGUOUS"
+        }
+      ],
+      "scope_assessments": [
+        {
+          "rule_id": "CFTC_EVENT_CONDITIONAL",
+          "rule_name": "CFTC event-contract treatment",
+          "regime": "CFTC",
+          "severity": "WARNING",
+          "message": "T026 is a Kalshi-style event contract on a CFTC DCM. Treat as CONDITIONAL rather than a conventional OTC swap.",
+          "finding_type": "SCOPE",
+          "field": "asset_class",
+          "status": "CONDITIONAL"
+        },
+        {
+          "rule_id": "EMIR_EVENT_SCOPE",
+          "rule_name": "EMIR event-contract scope",
+          "regime": "EMIR",
+          "severity": "INFO",
+          "message": "Case-file facts mark this EventContract as outside the selected EMIR OTC reporting path.",
+          "finding_type": "SCOPE",
+          "field": "asset_class",
+          "status": "NOT_APPLICABLE"
+        }
+      ],
+      "findings": [
+        {
+          "rule_id": "NO_PRODUCT_DEFINITION",
+          "rule_name": "ANNA-DSB UPI taxonomy coverage",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "No ANNA-DSB OTC product definition exists for EventContract; this is a taxonomy gap, not a parser crash.",
+          "finding_type": "COMPLIANCE",
+          "field": "asset_class",
+          "status": "REGULATORY_AMBIGUOUS"
+        },
+        {
+          "rule_id": "CFTC_EVENT_CONDITIONAL",
+          "rule_name": "CFTC event-contract treatment",
+          "regime": "CFTC",
+          "severity": "WARNING",
+          "message": "T026 is a Kalshi-style event contract on a CFTC DCM. Treat as CONDITIONAL rather than a conventional OTC swap.",
+          "finding_type": "SCOPE",
+          "field": "asset_class",
+          "status": "CONDITIONAL"
+        },
+        {
+          "rule_id": "EMIR_EVENT_SCOPE",
+          "rule_name": "EMIR event-contract scope",
+          "regime": "EMIR",
+          "severity": "INFO",
+          "message": "Case-file facts mark this EventContract as outside the selected EMIR OTC reporting path.",
+          "finding_type": "SCOPE",
+          "field": "asset_class",
+          "status": "NOT_APPLICABLE"
+        }
+      ]
+    },
+    {
+      "trade_id": "T027",
+      "asset_class": "EventContract",
+      "instrument_type": "BinaryOption",
+      "use_case": "EconomicIndicator",
+      "source_facts": {
+        "platform": "Polymarket",
+        "platform_type": "offshore_decentralised",
+        "event_description": "US CPI > 3% in Q3 2026",
+        "hedger_type": "EU_asset_manager",
+        "notional_currency": "USDC",
+        "booked_in_sg": false,
+        "traded_in_sg": false,
+        "case_file_cftc_status": "NOT_APPLICABLE",
+        "case_file_emir_status": "NOT_APPLICABLE",
+        "case_file_regulatory_note": "Not a CFTC DCM; no LEI for either side; USDC settlement"
+      },
+      "parse": {
+        "trade_id": "T027",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "NOVEL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": false,
+        "matched_template_path": null,
+        "normalized_product": null,
+        "required_attributes": [],
+        "required_attribute_validation": {
+          "status": "NO_PRODUCT_DEFINITION",
+          "checked_required_attributes": [],
+          "checked_required_count": 0,
+          "missing_mapped_required_attributes": [],
+          "missing_mapped_required_count": 0,
+          "unmapped_required_attributes_sample": [],
+          "unmapped_required_count": 0,
+          "note": "No ANNA-DSB OTC UPI template exists for EventContract, so template-level attribute validation cannot be performed."
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "INVALID",
+            "message": "USDC is not an ISO 4217 currency code in the DSB codeset"
+          },
+          "reference_rate": {
+            "status": "NOT_APPLICABLE",
+            "message": null
+          }
+        },
+        "upi_status": "NO_PRODUCT_DEFINITION",
+        "notes": [
+          "EventContract has no ANNA-DSB UPI product definition in the OTC taxonomy."
+        ]
+      },
+      "economic_function_test": {
+        "quantifiable_exposure": {
+          "status": "YES",
+          "rationale": "A fixed-income portfolio manager holding USD rates exposure can quantify CPI-driven mark-to-market losses."
+        },
+        "viable_hedge_substitute": {
+          "status": "YES_FUNCTIONAL_NOT_LEGAL",
+          "rationale": "The payoff is economically analogous to CPI caps or inflation swaptions, but the offshore venue, missing LEIs, missing UTI, and USDC settlement block ordinary CFTC/EMIR reporting visibility."
+        },
+        "price_discovery_beyond_public_data": {
+          "status": "YES",
+          "rationale": "Binary CPI prices can provide distributional probability information not directly observable from ordinary fixed-income instruments."
+        },
+        "engine_conclusion": "NOT_REPORTABLE_EVENT_CONTRACT"
+      },
+      "supervisory_flags": {
+        "regulated_cftc_venue": false,
+        "offshore_or_decentralised": true,
+        "no_upi_taxonomy": true,
+        "non_iso_settlement_currency": true,
+        "missing_identifier_visibility": true,
+        "ec1_threshold_usd": 100000,
+        "ec1_threshold_status": "BELOW_THRESHOLD",
+        "recommended_cftc_action": "EC1_REVIEW_BELOW_PROPOSED_THRESHOLD"
+      },
+      "classification_conclusion": "NOT_REPORTABLE_EVENT_CONTRACT",
+      "regulatory_conclusion": "NOT_REPORTABLE_EVENT_CONTRACT",
+      "data_quality_status": "NONCOMPLIANT",
+      "reporting_scope_status": "OUT_OF_SCOPE",
+      "overall_status": "NOT_REPORTABLE",
+      "compliance_findings": [
+        {
+          "rule_id": "NO_PRODUCT_DEFINITION",
+          "rule_name": "ANNA-DSB UPI taxonomy coverage",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "No ANNA-DSB OTC product definition exists for EventContract; this is a taxonomy gap, not a parser crash.",
+          "finding_type": "COMPLIANCE",
+          "field": "asset_class",
+          "status": "REGULATORY_AMBIGUOUS"
+        },
+        {
+          "rule_id": "INVALID_CURRENCY",
+          "rule_name": "ISO 4217 currency validation",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "USDC is not an ISO 4217 currency code in the DSB codeset",
+          "finding_type": "COMPLIANCE",
+          "field": "notional_currency"
+        },
+        {
+          "rule_id": "LEI_MISSING",
+          "rule_name": "LEI presence",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "reporting counterparty lei is missing or uses a placeholder.",
+          "finding_type": "COMPLIANCE",
+          "field": "reporting_counterparty_lei"
+        },
+        {
+          "rule_id": "LEI_MISSING",
+          "rule_name": "LEI presence",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "other counterparty lei is missing or uses a placeholder.",
+          "finding_type": "COMPLIANCE",
+          "field": "other_counterparty_lei"
+        },
+        {
+          "rule_id": "UTI_MISSING",
+          "rule_name": "UTI presence",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "UTI is missing.",
+          "finding_type": "COMPLIANCE",
+          "field": "uti"
+        }
+      ],
+      "scope_assessments": [
+        {
+          "rule_id": "CFTC_EVENT_NOT_APPLICABLE",
+          "rule_name": "CFTC event-contract treatment",
+          "regime": "CFTC",
+          "severity": "INFO",
+          "message": "T027 is not reportable through the CFTC OTC swap reporting path based on the provided platform facts.",
+          "finding_type": "SCOPE",
+          "field": "asset_class",
+          "status": "NOT_APPLICABLE"
+        },
+        {
+          "rule_id": "EMIR_EVENT_SCOPE",
+          "rule_name": "EMIR event-contract scope",
+          "regime": "EMIR",
+          "severity": "INFO",
+          "message": "Case-file facts mark this EventContract as outside the selected EMIR OTC reporting path.",
+          "finding_type": "SCOPE",
+          "field": "asset_class",
+          "status": "NOT_APPLICABLE"
+        }
+      ],
+      "findings": [
+        {
+          "rule_id": "NO_PRODUCT_DEFINITION",
+          "rule_name": "ANNA-DSB UPI taxonomy coverage",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "No ANNA-DSB OTC product definition exists for EventContract; this is a taxonomy gap, not a parser crash.",
+          "finding_type": "COMPLIANCE",
+          "field": "asset_class",
+          "status": "REGULATORY_AMBIGUOUS"
+        },
+        {
+          "rule_id": "INVALID_CURRENCY",
+          "rule_name": "ISO 4217 currency validation",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "USDC is not an ISO 4217 currency code in the DSB codeset",
+          "finding_type": "COMPLIANCE",
+          "field": "notional_currency"
+        },
+        {
+          "rule_id": "LEI_MISSING",
+          "rule_name": "LEI presence",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "reporting counterparty lei is missing or uses a placeholder.",
+          "finding_type": "COMPLIANCE",
+          "field": "reporting_counterparty_lei"
+        },
+        {
+          "rule_id": "LEI_MISSING",
+          "rule_name": "LEI presence",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "other counterparty lei is missing or uses a placeholder.",
+          "finding_type": "COMPLIANCE",
+          "field": "other_counterparty_lei"
+        },
+        {
+          "rule_id": "UTI_MISSING",
+          "rule_name": "UTI presence",
+          "regime": "GLOBAL",
+          "severity": "NONCOMPLIANT",
+          "message": "UTI is missing.",
+          "finding_type": "COMPLIANCE",
+          "field": "uti"
+        },
+        {
+          "rule_id": "CFTC_EVENT_NOT_APPLICABLE",
+          "rule_name": "CFTC event-contract treatment",
+          "regime": "CFTC",
+          "severity": "INFO",
+          "message": "T027 is not reportable through the CFTC OTC swap reporting path based on the provided platform facts.",
+          "finding_type": "SCOPE",
+          "field": "asset_class",
+          "status": "NOT_APPLICABLE"
+        },
+        {
+          "rule_id": "EMIR_EVENT_SCOPE",
+          "rule_name": "EMIR event-contract scope",
+          "regime": "EMIR",
+          "severity": "INFO",
+          "message": "Case-file facts mark this EventContract as outside the selected EMIR OTC reporting path.",
+          "finding_type": "SCOPE",
+          "field": "asset_class",
+          "status": "NOT_APPLICABLE"
+        }
+      ]
+    },
+    {
+      "trade_id": "T028",
+      "asset_class": "EventContract",
+      "instrument_type": "BinaryOption",
+      "use_case": "RegulatoryOutcome",
+      "source_facts": {
+        "platform": "Kalshi",
+        "platform_type": "CFTC_DCM",
+        "event_description": "ESMA AI Act decision outcome",
+        "hedger_type": "fintech_compliance_firm",
+        "notional_currency": "USD",
+        "booked_in_sg": false,
+        "traded_in_sg": false,
+        "case_file_cftc_status": "CONDITIONAL",
+        "case_file_emir_status": "NOT_APPLICABLE",
+        "case_file_regulatory_note": "Gambling classification applies in EU"
+      },
+      "parse": {
+        "trade_id": "T028",
+        "parse_status": "PASSED",
+        "engine_parse_status": "PASSED",
+        "declared_parse_status": "OK",
+        "classification": "NOVEL",
+        "data_quality_flags": [],
+        "timestamp_message": null
+      },
+      "upi": {
+        "template_found": false,
+        "matched_template_path": null,
+        "normalized_product": null,
+        "required_attributes": [],
+        "required_attribute_validation": {
+          "status": "NO_PRODUCT_DEFINITION",
+          "checked_required_attributes": [],
+          "checked_required_count": 0,
+          "missing_mapped_required_attributes": [],
+          "missing_mapped_required_count": 0,
+          "unmapped_required_attributes_sample": [],
+          "unmapped_required_count": 0,
+          "note": "No ANNA-DSB OTC UPI template exists for EventContract, so template-level attribute validation cannot be performed."
+        },
+        "codeset_results": {
+          "notional_currency": {
+            "status": "VALID",
+            "message": "USD is present in ISOCurrencyCode"
+          },
+          "reference_rate": {
+            "status": "NOT_APPLICABLE",
+            "message": null
+          }
+        },
+        "upi_status": "NO_PRODUCT_DEFINITION",
+        "notes": [
+          "EventContract has no ANNA-DSB UPI product definition in the OTC taxonomy."
+        ]
+      },
+      "economic_function_test": {
+        "quantifiable_exposure": {
+          "status": "YES",
+          "rationale": "A fintech firm can quantify the compliance-cost timing effect of an AI Act deadline extension."
+        },
+        "viable_hedge_substitute": {
+          "status": "NO",
+          "rationale": "No standard OTC instrument references the ESMA AI Act deadline as the underlying event."
+        },
+        "price_discovery_beyond_public_data": {
+          "status": "PARTIAL",
+          "rationale": "The event may contain a useful regulatory probability signal, but thin volume and possible non-public information weaken informational reliability."
+        },
+        "engine_conclusion": "CONDITIONAL_EVENT_CONTRACT"
+      },
+      "supervisory_flags": {
+        "regulated_cftc_venue": true,
+        "offshore_or_decentralised": false,
+        "no_upi_taxonomy": true,
+        "non_iso_settlement_currency": false,
+        "missing_identifier_visibility": false,
+        "ec1_threshold_usd": 100000,
+        "ec1_threshold_status": "BELOW_THRESHOLD",
+        "recommended_cftc_action": "PART45_DCM_EVENT_REPORTING_CANDIDATE"
+      },
+      "classification_conclusion": "CONDITIONAL_EVENT_CONTRACT",
+      "regulatory_conclusion": "CONDITIONAL_EVENT_CONTRACT",
+      "data_quality_status": "WARNING",
+      "reporting_scope_status": "CONDITIONAL",
+      "overall_status": "REGULATORY_AMBIGUOUS",
+      "compliance_findings": [
+        {
+          "rule_id": "NO_PRODUCT_DEFINITION",
+          "rule_name": "ANNA-DSB UPI taxonomy coverage",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "No ANNA-DSB OTC product definition exists for EventContract; this is a taxonomy gap, not a parser crash.",
+          "finding_type": "COMPLIANCE",
+          "field": "asset_class",
+          "status": "REGULATORY_AMBIGUOUS"
+        }
+      ],
+      "scope_assessments": [
+        {
+          "rule_id": "CFTC_EVENT_CONDITIONAL",
+          "rule_name": "CFTC event-contract treatment",
+          "regime": "CFTC",
+          "severity": "WARNING",
+          "message": "T028 is a Kalshi-style event contract on a CFTC DCM. Treat as CONDITIONAL rather than a conventional OTC swap.",
+          "finding_type": "SCOPE",
+          "field": "asset_class",
+          "status": "CONDITIONAL"
+        },
+        {
+          "rule_id": "EMIR_EVENT_SCOPE",
+          "rule_name": "EMIR event-contract scope",
+          "regime": "EMIR",
+          "severity": "INFO",
+          "message": "Case-file facts mark this EventContract as outside the selected EMIR OTC reporting path.",
+          "finding_type": "SCOPE",
+          "field": "asset_class",
+          "status": "NOT_APPLICABLE"
+        }
+      ],
+      "findings": [
+        {
+          "rule_id": "NO_PRODUCT_DEFINITION",
+          "rule_name": "ANNA-DSB UPI taxonomy coverage",
+          "regime": "GLOBAL",
+          "severity": "WARNING",
+          "message": "No ANNA-DSB OTC product definition exists for EventContract; this is a taxonomy gap, not a parser crash.",
+          "finding_type": "COMPLIANCE",
+          "field": "asset_class",
+          "status": "REGULATORY_AMBIGUOUS"
+        },
+        {
+          "rule_id": "CFTC_EVENT_CONDITIONAL",
+          "rule_name": "CFTC event-contract treatment",
+          "regime": "CFTC",
+          "severity": "WARNING",
+          "message": "T028 is a Kalshi-style event contract on a CFTC DCM. Treat as CONDITIONAL rather than a conventional OTC swap.",
+          "finding_type": "SCOPE",
+          "field": "asset_class",
+          "status": "CONDITIONAL"
+        },
+        {
+          "rule_id": "EMIR_EVENT_SCOPE",
+          "rule_name": "EMIR event-contract scope",
+          "regime": "EMIR",
+          "severity": "INFO",
+          "message": "Case-file facts mark this EventContract as outside the selected EMIR OTC reporting path.",
+          "finding_type": "SCOPE",
+          "field": "asset_class",
+          "status": "NOT_APPLICABLE"
+        }
+      ]
+    }
+  ]
+}

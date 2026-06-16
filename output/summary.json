@@ -1,0 +1,164 @@
+{
+  "metadata": {
+    "engine_name": "衍生品交易报告合规审查工作台规则引擎",
+    "regimes": [
+      "CFTC",
+      "EMIR"
+    ],
+    "trade_count": 28,
+    "product_definitions_path": "data/product_definitions"
+  },
+  "overall_status_counts": {
+    "COMPLIANT": 5,
+    "WARNING": 7,
+    "NONCOMPLIANT": 13,
+    "REGULATORY_AMBIGUOUS": 2,
+    "NOT_REPORTABLE": 1
+  },
+  "data_quality_status_counts": {
+    "PASS": 5,
+    "WARNING": 9,
+    "NONCOMPLIANT": 14
+  },
+  "reporting_scope_status_counts": {
+    "IN_SCOPE": 25,
+    "CONDITIONAL": 2,
+    "OUT_OF_SCOPE": 1
+  },
+  "severity_counts": {
+    "INFO": 39,
+    "WARNING": 20,
+    "NONCOMPLIANT": 25
+  },
+  "all_rule_counts": {
+    "UPI_PLACEHOLDER": 25,
+    "UPI_TEMPLATE_MAPPING": 19,
+    "LEI_CHECK_DIGIT": 6,
+    "EMIR_NULL_MARGIN": 3,
+    "INVALID_CURRENCY": 3,
+    "LEI_MISSING": 3,
+    "NO_PRODUCT_DEFINITION": 3,
+    "EMIR_EVENT_SCOPE": 3,
+    "REFERENCE_RATE_ALIAS": 2,
+    "EMIR_REQUIRED_FIELD": 2,
+    "UTI_NAMESPACE": 2,
+    "UTI_NAMESPACE_FORMAT": 2,
+    "CFTC_EVENT_CONDITIONAL": 2,
+    "LIBOR_WARNING": 1,
+    "ACTION_TYPE_ENUM": 1,
+    "TIMESTAMP_PARTIAL": 1,
+    "CFTC_REQUIRED_FIELD": 1,
+    "DATE_INVALID": 1,
+    "UTI_SUFFIX": 1,
+    "TIMESTAMP_INVALID": 1,
+    "UTI_MISSING": 1,
+    "CFTC_EVENT_NOT_APPLICABLE": 1
+  },
+  "top_rule_counts": {
+    "UPI_PLACEHOLDER": 25,
+    "UPI_TEMPLATE_MAPPING": 19,
+    "LEI_CHECK_DIGIT": 6,
+    "EMIR_NULL_MARGIN": 3,
+    "INVALID_CURRENCY": 3,
+    "LEI_MISSING": 3,
+    "NO_PRODUCT_DEFINITION": 3,
+    "REFERENCE_RATE_ALIAS": 2,
+    "EMIR_REQUIRED_FIELD": 2,
+    "UTI_NAMESPACE": 2,
+    "UTI_NAMESPACE_FORMAT": 2,
+    "LIBOR_WARNING": 1,
+    "ACTION_TYPE_ENUM": 1,
+    "TIMESTAMP_PARTIAL": 1,
+    "CFTC_REQUIRED_FIELD": 1,
+    "DATE_INVALID": 1,
+    "UTI_SUFFIX": 1,
+    "TIMESTAMP_INVALID": 1,
+    "UTI_MISSING": 1
+  },
+  "top_compliance_rule_counts": {
+    "UPI_PLACEHOLDER": 25,
+    "UPI_TEMPLATE_MAPPING": 19,
+    "LEI_CHECK_DIGIT": 6,
+    "EMIR_NULL_MARGIN": 3,
+    "INVALID_CURRENCY": 3,
+    "LEI_MISSING": 3,
+    "NO_PRODUCT_DEFINITION": 3,
+    "REFERENCE_RATE_ALIAS": 2,
+    "EMIR_REQUIRED_FIELD": 2,
+    "UTI_NAMESPACE": 2,
+    "UTI_NAMESPACE_FORMAT": 2,
+    "LIBOR_WARNING": 1,
+    "ACTION_TYPE_ENUM": 1,
+    "TIMESTAMP_PARTIAL": 1,
+    "CFTC_REQUIRED_FIELD": 1,
+    "DATE_INVALID": 1,
+    "UTI_SUFFIX": 1,
+    "TIMESTAMP_INVALID": 1,
+    "UTI_MISSING": 1
+  },
+  "top_substantive_rule_counts": {
+    "LEI_CHECK_DIGIT": 6,
+    "EMIR_NULL_MARGIN": 3,
+    "INVALID_CURRENCY": 3,
+    "LEI_MISSING": 3,
+    "NO_PRODUCT_DEFINITION": 3,
+    "EMIR_REQUIRED_FIELD": 2,
+    "UTI_NAMESPACE": 2,
+    "UTI_NAMESPACE_FORMAT": 2,
+    "LIBOR_WARNING": 1,
+    "ACTION_TYPE_ENUM": 1,
+    "TIMESTAMP_PARTIAL": 1,
+    "CFTC_REQUIRED_FIELD": 1,
+    "DATE_INVALID": 1,
+    "UTI_SUFFIX": 1,
+    "TIMESTAMP_INVALID": 1,
+    "UTI_MISSING": 1
+  },
+  "scope_rule_counts": {
+    "EMIR_EVENT_SCOPE": 3,
+    "CFTC_EVENT_CONDITIONAL": 2,
+    "CFTC_EVENT_NOT_APPLICABLE": 1
+  },
+  "asset_class_status_counts": {
+    "Commodities": {
+      "NONCOMPLIANT": 2
+    },
+    "Credit": {
+      "WARNING": 2,
+      "NONCOMPLIANT": 1,
+      "COMPLIANT": 1
+    },
+    "Equity": {
+      "NONCOMPLIANT": 3,
+      "WARNING": 1
+    },
+    "EventContract": {
+      "REGULATORY_AMBIGUOUS": 2,
+      "NOT_REPORTABLE": 1
+    },
+    "FX": {
+      "WARNING": 1,
+      "NONCOMPLIANT": 4
+    },
+    "Rates": {
+      "COMPLIANT": 4,
+      "WARNING": 3,
+      "NONCOMPLIANT": 3
+    }
+  },
+  "classification_counts": {
+    "CONVENTIONAL": 25,
+    "CONDITIONAL_EVENT_CONTRACT": 2,
+    "NOT_REPORTABLE_EVENT_CONTRACT": 1
+  },
+  "regulatory_conclusion_counts": {
+    "CONVENTIONAL": 25,
+    "CONDITIONAL_EVENT_CONTRACT": 2,
+    "NOT_REPORTABLE_EVENT_CONTRACT": 1
+  },
+  "parse_status_counts": {
+    "PASSED": 25,
+    "PARTIAL": 2,
+    "FAILED": 1
+  }
+}
