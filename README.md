@@ -75,17 +75,46 @@ dashboard 内置 Plotly 资源，离线也可以打开。
 ## 项目结构
 
 ```text
-src/                         规则引擎、解析、UPI、合规检查、分类分析和输出逻辑
-config/product_aliases.json  产品标签归一化配置
-data/raw/trades.json         不可变原始案例数据
-data/processed/trades.json   运行时规范化交易数据
-data/product_definitions/    ANNA-DSB Product-Definitions 本地副本
-output/compliance_results.json  每笔交易的完整结构化结果
-output/summary.json          组合级摘要
-output/findings.csv          扁平化发现项表
-dashboard/dashboard.html     中英文产品原型主入口
-tools/prepare_data.py        数据准备脚本
-tests_smoke.py               核心规则和展示层文本审计测试
+.
+├── README.md                         项目说明、运行方式和产品定位
+├── requirements.txt                  运行环境说明
+├── run_compliance_check.py           合规检查主运行入口
+├── tests_smoke.py                    核心规则和展示层文本审计测试
+│
+├── src/                              规则引擎、解析、UPI、合规检查、分类分析和输出逻辑
+│   ├── engine.py                     核心编排逻辑：解析、规则检查、分类判断和结果输出
+│   ├── models.py                     交易、发现项和合规结果的数据结构
+│   ├── module1_parser.py             交易解析与基础字段一致性检查
+│   ├── module2_upi.py                ANNA-DSB UPI 模板匹配与 codeset 校验
+│   ├── module3_compliance.py         CFTC、EMIR、MAS 多监管路径检查
+│   ├── module4_classification.py     事件合约分类边界分析
+│   └── reporting.py                  JSON / CSV / summary 输出逻辑
+│
+├── config/
+│   ├── product_aliases.json          产品标签归一化配置
+│   └── eventcontract_schema_full.json 事件合约分类 schema 配置
+│
+├── data/
+│   ├── raw/trades.json               不可变原始案例数据
+│   ├── processed/trades.json         运行时规范化交易数据
+│   ├── product_definitions/          ANNA-DSB Product-Definitions 本地副本
+│   ├── data_manifest.json            原始数据与处理后数据的摘要记录
+│   └── README.md                     数据来源、字段说明和使用边界说明
+│
+├── output/
+│   ├── compliance_results.json       每笔交易的完整结构化结果
+│   ├── summary.json                  组合级摘要
+│   └── findings.csv                  扁平化发现项表
+│
+├── dashboard/
+│   ├── dashboard.html                中英文产品原型主入口
+│   ├── pages/                        热力图、规则频次、资产分布和分类边界全屏页面
+│   └── assets/plotly.min.js          离线可视化依赖
+│
+├── tools/
+│   └── prepare_data.py               数据准备脚本
+│
+└── image/README/                     README 展示截图
 ```
 
 ## 数据准备链路
